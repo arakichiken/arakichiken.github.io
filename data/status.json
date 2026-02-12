@@ -1,0 +1,16 @@
+{
+  "ichiban": true,
+  "niban": false,
+  "sanban": false,
+  "north": false,
+  "casa1": false,
+  "casa2": false,
+  "villa": false,
+  "prima": false,
+  "student": false,
+  "casamento": false,
+  "sumi": false,
+  "asahi": true,
+  "wing": true,
+  "family-grace": true
+}

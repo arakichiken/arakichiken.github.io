@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>荒木地建｜佐世保市の賃貸アパート・学生向け物件情報</title>
+  <meta name="google-site-verification" content="qLASYoXkSVK6nprFHVwlM8qbonhYfJWtIYd-sFZU-_o" />
+　<meta name="description" content="荒木地建は長崎県佐世保市の不動産会社です。学生向けアパートを中心に、ファミリー物件・米軍住宅管理・賃貸情報を掲載しています。" />
+
+  <style>
+    :root{
+      --bg:#f6fff6;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e6f2e6;
+
+      --accent:#a3e635;     /* 黄緑 */
+      --accent2:#22c55e;    /* 緑 */
+      --accent3:#16a34a;
+
+      --blue:#2563eb;
+      --red:#dc2626;
+      --gray:#64748b;
+
+      --shadow: 0 14px 34px rgba(15,23,42,.08);
+      --shadow2: 0 18px 46px rgba(15,23,42,.12);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 10% -10%, rgba(163,230,53,.18), transparent 60%),
+        radial-gradient(900px 450px at 95% 0%, rgba(34,197,94,.12), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:16px}
+
+    /* ===== Header（電話等は置かない） ===== */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:
+        radial-gradient(700px 320px at 20% 0%, rgba(255,255,255,.45), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      border-bottom:1px solid rgba(230,242,230,.9);
+      backdrop-filter:saturate(140%) blur(8px);
+    }
+    .header-inner{
+      max-width:1200px;margin:0 auto;
+      padding:14px 16px 10px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    header h1{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.02em;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand-dot{
+      width:12px;height:12px;border-radius:999px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 10px 20px rgba(34,197,94,.20);
+    }
+    header p{
+      margin:6px 0 0;
+      font-size:12.5px;
+      color:rgba(15,23,42,.72);
+      line-height:1.5;
+    }
+    nav{
+      max-width:1200px;margin:0 auto;
+      padding:0 16px 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid rgba(230,242,230,.95);
+      background:rgba(255,255,255,.72);
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+      transition:transform .08s ease;
+    }
+    nav a:hover{transform:translateY(-1px)}
+
+    /* ===== Sections ===== */
+    .section{
+      background:var(--card);
+      border-radius:22px;
+      padding:18px;
+      margin-top:18px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(230,242,230,.95);
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h2:after{
+      content:"";
+      height:1px;
+      flex:1;
+      background:linear-gradient(90deg, rgba(34,197,94,.35), transparent);
+      border-radius:999px;
+    }
+    .meta{color:var(--muted);font-size:13px;line-height:1.7}
+
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+    .controls button{
+      padding:9px 12px;border-radius:999px;
+      border:1px solid rgba(230,242,230,.95);
+      background:#fbfffb;
+      cursor:pointer;font-size:13px;
+      box-shadow:0 10px 22px rgba(15,23,42,.05);
+      transition:transform .08s ease;
+    }
+    .controls button:hover{transform:translateY(-1px)}
+    .controls button:active{transform:translateY(0)}
+
+    /* ===== 満室 開閉 ===== */
+    .full-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px dashed rgba(34,197,94,.35);
+      background:linear-gradient(180deg, rgba(163,230,53,.10), rgba(255,255,255,.70));
+      margin:10px 0 14px;
+    }
+    .full-toggle .note{
+      font-size:13px;
+      color:rgba(15,23,42,.72);
+      line-height:1.5;
+    }
+    .btn-ghost{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(230,242,230,.95);
+      background:rgba(255,255,255,.85);
+      cursor:pointer;
+      font-size:13px;
+      box-shadow:0 10px 20px rgba(15,23,42,.06);
+      transition:transform .08s ease;
+    }
+    .btn-ghost:hover{transform:translateY(-1px)}
+    .btn-ghost:active{transform:translateY(0)}
+    .chev{
+      width:10px;height:10px;
+      border-right:2px solid rgba(15,23,42,.6);
+      border-bottom:2px solid rgba(15,23,42,.6);
+      transform:rotate(45deg);
+      transition:transform .15s ease;
+      margin-top:-1px;
+    }
+    .btn-ghost[aria-expanded="true"] .chev{transform:rotate(-135deg)}
+
+    /* ===== Property Card ===== */
+    .property{
+      border:1px solid rgba(230,242,230,.95);
+      border-radius:var(--radius);
+      padding:14px;
+      margin-bottom:14px;
+      background:var(--card);
+      box-shadow:0 10px 26px rgba(15,23,42,.05);
+      position:relative;
+      overflow:hidden;
+      transition:box-shadow .15s ease, transform .15s ease;
+    }
+    .property:hover{box-shadow:var(--shadow2); transform:translateY(-1px)}
+    .property.full{opacity:.58;filter:grayscale(70%)}
+
+    .property h3{
+      margin:0 0 10px;
+      font-size:18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      padding-right:82px;
+    }
+
+    .status{
+      position:absolute;
+      top:12px; right:12px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:#fff;
+      box-shadow:0 12px 26px rgba(0,0,0,.14);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(6px);
+      z-index:5;
+    }
+    .status.open{background:linear-gradient(135deg, var(--accent2), var(--accent3));}
+    .status.full{background:linear-gradient(135deg, rgba(220,38,38,1), rgba(239,68,68,1));}
+
+    .property.full:before{
+      content:"満室";
+      position:absolute;
+      left:-44px; top:18px;
+      transform:rotate(-15deg);
+      background:rgba(220,38,38,.92);
+      color:#fff;
+      padding:6px 74px;
+      font-weight:800;
+      letter-spacing:.12em;
+      font-size:12px;
+      box-shadow:0 12px 26px rgba(220,38,38,.18);
+      z-index:4;
+    }
+
+    .subline{margin:10px 0 10px;color:#334155;font-size:14px;line-height:1.6}
+    .details{margin:0;padding-left:18px;color:#334155;font-size:14px;line-height:1.7}
+    .details li{margin:0 0 4px}
+
+    /* ===== Photo Gallery (main + thumbs) ===== */
+    .gallery{
+      margin-top:6px;
+      border-radius:16px;
+      border:1px solid rgba(230,242,230,.95);
+      background:linear-gradient(180deg, rgba(163,230,53,.10), rgba(255,255,255,.60));
+      overflow:hidden;
+      box-shadow:0 12px 24px rgba(15,23,42,.06);
+    }
+    .gallery-main{
+      position:relative;
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background:#eef6ee;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+      cursor:zoom-in;
+    }
+    /* ★切れないように：contain */
+    .gallery-main img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      border-radius:10px;
+      background:#f8fff8;
+    }
+    .gallery-main .hint{
+      position:absolute;
+      left:10px; bottom:10px;
+      font-size:12px;
+      color:rgba(15,23,42,.72);
+      background:rgba(255,255,255,.70);
+      border:1px solid rgba(230,242,230,.95);
+      padding:6px 10px;
+      border-radius:999px;
+      backdrop-filter: blur(6px);
+    }
+
+    .thumbs{
+      display:flex;
+      gap:10px;
+      padding:10px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      background:rgba(255,255,255,.78);
+      border-top:1px solid rgba(230,242,230,.95);
+    }
+    .thumbs::-webkit-scrollbar{height:8px}
+    .thumbs::-webkit-scrollbar-thumb{background:#cfe7cf;border-radius:999px}
+
+    .thumb{
+      flex:0 0 auto;
+      width:120px;
+      height:76px;
+      border-radius:12px;
+      border:2px solid transparent;
+      overflow:hidden;
+      cursor:pointer;
+      scroll-snap-align:start;
+      background:#f1f5f9;
+      box-shadow:0 10px 18px rgba(15,23,42,.06);
+      position:relative;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+    }
+    .thumb.active{
+      border-color: rgba(34,197,94,.9);
+      box-shadow:0 14px 26px rgba(34,197,94,.18);
+    }
+
+    /* ===== Video ===== */
+    /* ===== YouTube Click-to-Play（軽量化） ===== */
+.yt{
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background:#000;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(230,242,230,.95);
+  box-shadow:0 10px 22px rgba(15,23,42,.06);
+  cursor:pointer;
+}
+
+.yt-thumb{
+  width:100%;
+  height:100%;
+  background-position:center;
+  background-size:cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.yt-play{
+  font-size:48px;
+  line-height:1;
+  color:#fff;
+  background: rgba(0,0,0,.55);
+  border-radius:999px;
+  padding: 12px 18px;
+}
+
+.yt iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+    .video{
+      margin-top:12px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(230,242,230,.95);
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+    }
+    .video iframe{width:100%;aspect-ratio:16/9;display:block}
+
+    /* ===== Buttons ===== */
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      border:none;
+      color:#fff;
+      cursor:pointer;
+      font-size:13px;
+      text-decoration:none;
+      box-shadow:0 12px 22px rgba(15,23,42,.10);
+      transition:transform .08s ease, filter .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
+    .btn:active{transform:translateY(0)}
+    .btn.visit{background:linear-gradient(135deg, var(--accent2), var(--accent3))}
+    .btn.toggle{background:linear-gradient(135deg, var(--gray), #475569)}
+    .btn.map{background:linear-gradient(135deg, #06b6d4, #0ea5e9)}
+
+    .news{margin:0;padding-left:18px}
+    .news li{margin:0 0 6px}
+
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn.tel{background:linear-gradient(135deg, var(--accent2), var(--accent3))}
+    .btn.line{background:linear-gradient(135deg, #22c55e, #16a34a)}
+    .btn.mail{background:linear-gradient(135deg, #0ea5e9, #0284c7)}
+
+    /* ===== Admin only ===== */
+    .admin-only{display:none !important;}
+    body.admin .admin-only{display:inline-flex !important;}
+
+    /* Footer fish */
+    footer{
+      margin-top:6px;
+      padding:22px 0;
+      text-align:center;
+      font-size:12px;
+      color:#64748b;
+    }
+    .admin-fish{
+      width:28px;height:28px;object-fit:contain;
+      vertical-align:middle;margin-left:8px;
+      opacity:.16;filter:grayscale(100%);
+      cursor:pointer;user-select:none;
+      transition:opacity .15s ease, transform .15s ease;
+    }
+    .admin-fish:hover{opacity:.32; transform:translateY(-1px)}
+
+    .hidden{display:none !important;}
+
+    /* ===== Lightbox ===== */
+    .lb{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(2,6,23,.72);
+      z-index:9999;
+      padding:16px;
+    }
+    .lb.open{display:flex;}
+    .lb-panel{
+      width:min(1100px, 100%);
+      height:min(82vh, 740px);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .lb-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 12px;
+      color:#fff;
+      font-size:13px;
+      background:linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.0));
+    }
+    .lb-title{
+      opacity:.95;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .lb-badge{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);
+      font-size:12px;
+    }
+    .lb-close{
+      border:none;
+      cursor:pointer;
+      color:#fff;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+    }
+    .lb-stage{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+      position:relative;
+    }
+    .lb-stage img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:14px;
+      background:rgba(255,255,255,.06);
+    }
+    .lb-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      border:none;
+      cursor:pointer;
+      width:44px;height:44px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      user-select:none;
+    }
+    .lb-arrow:hover{background:rgba(255,255,255,.18)}
+    .lb-prev{left:12px}
+    .lb-next{right:12px}
+    .lb-help{
+      position:absolute;
+      left:12px; bottom:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-size:12px;
+      opacity:.95;
+    }
+
+    @media (max-width: 520px){
+      header h1{font-size:20px}
+      .thumb{width:110px;height:72px}
+      .lb-arrow{width:40px;height:40px}
+    }
+    /* 最新コメント（ページ上部） */
+.latest-comment{
+  background:#f0fdf4;            /* 薄い黄緑 */
+  border:1px solid #d9f99d;
+  border-left:6px solid #84cc16; /* 黄緑ライン */
+  padding:10px 14px;
+  margin-top:12px;
+  border-radius:12px;
+  font-size:14px;
+  color:#14532d;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
+}
+.latest-comment strong{margin-right:6px}
+.latest-comment time{opacity:.8; font-size:12px; margin-left:8px}
+/* =========================
+   ヘッダー巨大化対策：固定は上だけ（スマホ見やすい）
+   ========================= */
+
+/* 既存の header{position:sticky...} を打ち消す */
+header.site-header{
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  border-bottom: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* 上段だけ固定 */
+.header-top{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background:
+    radial-gradient(700px 320px at 20% 0%, rgba(255,255,255,.45), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  border-bottom:1px solid rgba(230,242,230,.9);
+  backdrop-filter:saturate(140%) blur(8px);
+}
+
+/* 下段（nav + お知らせ）は通常の流れ */
+.header-bottom{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 16px 12px;
+}
+
+/* nav はヘッダー下段側に移すので、元navの max-width/padding を自然にする */
+.header-bottom nav{
+  max-width: none;
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+/* 最新お知らせをヘッダー下段内で整える */
+.header-bottom .latest-comment{
+  margin-top: 10px;
+}
+
+/* スマホ最適化：navを横スクロール、ヘッダー高さを圧縮 */
+@media (max-width: 520px){
+  .header-inner{ padding:10px 12px 8px; }
+  header h1{ font-size:18px; }
+  header p{ font-size:12px; margin-top:4px; }
+
+  .header-bottom{ padding:0 12px 10px; }
+
+  .header-bottom nav{
+    padding: 8px 0 8px;
+    gap:8px;
+    overflow-x:auto;
+    flex-wrap:nowrap;             /* 横スクロール */
+    -webkit-overflow-scrolling:touch;
+  }
+  .header-bottom nav a{ white-space:nowrap; }
+
+  .header-bottom .latest-comment{
+    margin-top: 8px;
+    font-size:13px;
+    padding:10px 12px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <!-- 固定するのはここだけ -->
+  <div class="header-top">
+    <div class="header-inner">
+      <div>
+        <h1><span class="brand-dot"></span>荒木地建</h1>
+        <p>長崎県佐世保市｜学生向けアパート・米軍住宅管理・ファミリー物件</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- nav と お知らせは固定しない（スマホで邪魔になりにくい） -->
+  <div class="header-bottom">
+    <nav>
+      <a href="#news">新着情報</a>
+      <a href="#apartments">学生向けアパート</a>
+      <a href="#family">ファミリー物件</a>
+      <a href="#owner-management">賃貸管理（オーナー様）</a>
+      <a href="#sales">売買物件情報</a>
+      <a href="#us-housing">米軍住宅管理</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#about">会社概要</a>
+    </nav>
+
+    <div class="latest-comment">
+      <strong>最新のお知らせ：</strong>
+      <span>長崎県立大学　佐世保校受験の皆様へ。2/10に推薦試験合格発表があります。合格後のお部屋探しは早いに越したことはありません。ご希望のお部屋をゲットするためにも是非ご連絡ください。</span>
+      <time>更新：2026.2.6</time>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 新着情報 -->
+  <section class="section" id="news">
+    <h2>新着情報</h2>
+    <ul class="news">
+      <li>2026.2.6　県立大学受験の皆様へ</li>
+      <li>2026.2.2　ホームページを公開しました</li>
+      <li>2026.2.2　学生向けアパートの空室情報を更新しました</li>
+    </ul>
+  </section>
+
+  <!-- 学生向けアパート一覧 -->
+  <section class="section" id="apartments">
+    <h2>学生向けアパート一覧（詳細）</h2>
+
+    <div class="controls">
+      <button type="button" onclick="sortByRent()">家賃が安い順</button>
+      <button type="button" onclick="sortByDistance()">大学に近い順</button>
+    </div>
+
+    <!-- ★満室 開閉 -->
+    <div class="full-toggle">
+      <div class="note">満室の物件は下にまとめています（見たいときだけ開けます）</div>
+      <button id="toggleFullBtn" class="btn-ghost" type="button" aria-expanded="false" onclick="toggleFullSection()">
+        <span id="toggleFullLabel">満室物件を見る</span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div id="list">
+
+      <!-- ① プランドール壱番館 -->
+      <div class="property full" id="ichiban" data-rent="50000" data-distance="9999" data-photo="ichiban" data-address="佐世保市上相浦町5-23">
+             <h3>プランドール壱番館</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="プランドール壱番館 写真ギャラリー"></div>
+        
+         <div class="video" aria-label="プランドール壱番館 内覧動画">
+          <iframe
+ 　　　　　 src="https://www.youtube.com/embed/W8qHGMw_Atc?autoplay=1&mute=1&playsinline=1&loop=1&playlist=W8qHGMw_Atc"
+ 　　　　　 title="プランドール壱番館 内覧動画"
+ 　　　　　 frameborder="0"
+ 　　　　　　 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  　　　　　　allowfullscreen></iframe>
+         </div>
+
+
+        <p class="subline">所在地：佐世保市上相浦町5-23｜木造亜鉛鉄板葺2階建｜全6戸</p>
+        <ul class="details">
+          <li>間取り：1K（8洋＋3K）</li>
+          <li>家賃：50,000円〜</li>
+          <li>敷金なし・礼金2ヶ月・仲介手数料なし</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／インターネット無料／洗濯機室内置き／洗浄付便座／独立洗面台／IH／エアコン／照明</li>
+          <li>アピール：専用ゴミ捨て場あり（指定ゴミ袋不要）／シャッター付き二重サッシ</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>備考：退去時に清掃料がかかる場合があります</li>
+          <li>コメント：平地、駅近で暮らしやすい立地条件です。ペアサッシのため光熱費も抑えられます。女性専用階もあり安心！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'ichiban')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('ichiban')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ② プランドール弐番館 -->
+      <div class="property" id="niban" data-rent="50000" data-distance="8" data-photo="niban" data-address="佐世保市川下町229-1">
+        <h3>プランドール弐番館</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="プランドール弐番館 写真ギャラリー"></div>
+
+        <div class="video" aria-label="プランドール弐番館 内覧動画">
+          <iframe
+ 　　　　　 src="https://www.youtube.com/embed/8OwzgJAp1Jg?autoplay=1&mute=1&playsinline=1&loop=1&playlist=8OwzgJAp1Jg"
+ 　　　　　 title="プランドール弐番館 内覧動画"
+ 　　　　　 frameborder="0"
+ 　　　　　　 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  　　　　　　allowfullscreen></iframe>
+         </div>
+
+        <p class="subline">所在地：佐世保市川下町229-1｜木造亜鉛鉄板葺2階建｜2015年築｜全9戸｜大学まで徒歩8分</p>
+        <ul class="details">
+          <li>家賃：50,000円〜</li>
+          <li>敷金なし・礼金2ヶ月・仲介手数料なし</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／インターネット無料／洗濯機室内置き／洗浄付便座／独立洗面台／IH／エアコン／照明</li>
+          <li>アピール：専用ゴミ捨て場あり（指定ゴミ袋不要）／シャッター付き二重サッシ</li>
+          <li>特徴：1階に管理会社（荒木地建）あり</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>備考：退去時に清掃料がかかる場合があります</li>
+          <li>コメント：平地で暮らしやすい立地条件です。ペアサッシのため光熱費も抑えられます。女性専用階もあり安心！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'niban')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('niban')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ③ プランドール参番館 -->
+      <div class="property" id="sanban" data-rent="50000" data-distance="16" data-photo="sanban" data-address="佐世保市新田町67-49">
+        <h3>プランドール参番館</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="プランドール参番館 写真ギャラリー"></div>
+
+        <p class="subline">所在地：佐世保市新田町67-49｜2020年築｜全6戸｜全室角部屋｜大学まで徒歩16分</p>
+        <ul class="details">
+          <li>家賃：50,000円〜</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／インターネット無料／洗濯機室内置き／洗浄付便座／独立洗面台／IH／エアコン／照明</li>
+          <li>アピール：専用ゴミ捨て場あり（指定ゴミ袋不要）／シャッター付き二重サッシ</li>
+          <li>特徴：オートロック／ウォークインクローゼット</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>備考：退去時に清掃料がかかる場合があります</li>
+          <li>コメント：平地、駅近で暮らしやすい立地条件です。ペアサッシのため光熱費も抑えられます。女性専用階もあり安心！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'sanban')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sanban')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ノースリバー -->
+      <div class="property" id="north" data-rent="35000" data-distance="14" data-photo="north" data-address="佐世保市相浦町288-1">
+        <h3>ノースリバー</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="ノースリバー 写真ギャラリー"></div>
+
+        <div class="video" aria-label="ノースリバー 内覧動画">
+          <iframe
+  src="https://www.youtube.com/embed/h0GmhKgX6E0?autoplay=1&mute=1&playsinline=1&loop=1&playlist=h0GmhKgX6E0"
+  title="ノースリバー 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+         
+        </div>
+
+        <p class="subline">所在地：佐世保市相浦町288-1｜木造スレート瓦葺2階建｜全20戸｜大学まで徒歩14分</p>
+        <ul class="details">
+          <li>間取り：1K（7.5洋＋2K）</li>
+          <li>家賃：35,000円〜（2階＋1,000円）</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／インターネット無料／洗濯機室内置き／ウォシュレット／2口IH／エアコン／照明</li>
+          <li>アピール：駐車場付き／引越し等の臨時駐車場あり</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：内装は白で統一されたオシャレな感じにしあがっています。隣は家主宅で安心！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'north')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('north')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- カーサシティⅠ -->
+      <div class="property" id="casa1" data-rent="32000" data-distance="12" data-photo="casa1" data-address="佐世保市大潟町142-2">
+        <h3>カーサシティⅠ</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="カーサシティⅠ 写真ギャラリー"></div>
+
+        <div class="video" aria-label="カーサシティ 内覧動画">
+          <iframe
+  src="https://www.youtube.com/embed/f-tazV0pmgE?autoplay=1&mute=1&playsinline=1&loop=1&playlist=f-tazV0pmgE"
+  title="カーサシティ 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+
+          
+        </div>
+
+        <p class="subline">所在地：佐世保市大潟町142-2｜木造瓦葺2階建｜1991年築｜全52戸｜大学まで徒歩12分</p>
+        <ul class="details">
+          <li>間取り：1K（8.4洋＋3K）</li>
+          <li>家賃：32,000円〜</li>
+          <li>敷金0・礼金1ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／駐車場／インターネット無料／洗濯機室内置き／ウォシュレット／2口IH／照明／エアコン</li>
+          <li>その他：臨時無料駐車場／宅配BOX／コインランドリー／新品カーテン／下駄箱</li>
+          <li>鍵交換代：10,000円</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：家主さんの管理の良さと内装の完成度が売りのコスパ最強の人気物件！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'casa1')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casa1')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- カーサシティⅡ -->
+      <div class="property" id="casa2" data-rent="33000" data-distance="11" data-photo="casa2" data-address="佐世保市大潟町250-1">
+        <h3>カーサシティⅡ</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="カーサシティⅡ 写真ギャラリー"></div>
+
+        <div class="video" aria-label="カーサシティⅡ 内覧動画">
+          <iframe
+  src="https://www.youtube.com/embed/7vNOu4fi5eE?autoplay=1&mute=1&playsinline=1&loop=1&playlist=7vNOu4fi5eE"
+  title="カーサシティⅡ 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+         
+
+        <p class="subline">所在地：佐世保市大潟町250-1｜1995年築｜大学まで徒歩11分</p>
+        <ul class="details">
+          <li>間取り：1K（8.4洋＋3K）</li>
+          <li>家賃：33,000円〜</li>
+          <li>敷金0・礼金1ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／駐車場／インターネット無料／洗濯機室内置き／ウォシュレット／2口IH／照明／エアコン</li>
+          <li>その他：臨時無料駐車場／宅配BOX／コインランドリー／新品カーテン／下駄箱</li>
+          <li>鍵交換代：10,000円</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：家主さんの管理の良さと内装の完成度が売りのコスパ最強の人気物件！当店人気No.1物件です。</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'casa2')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casa2')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ヴィラ朝日ヶ丘 -->
+      <div class="property" id="villa" data-rent="32000" data-distance="6" data-photo="villa" data-address="佐世保市大潟町60-136">
+        <h3>ヴィラ朝日ヶ丘</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="ヴィラ朝日ヶ丘 写真ギャラリー"></div>
+
+        <div class="video" aria-label="ヴィラ朝日ヶ丘 内覧動画">
+          <iframe
+  src="https://www.youtube.com/embed/BGWKHW2CcnA?autoplay=1&mute=1&playsinline=1&loop=1&playlist=BGWKHW2CcnA"
+  title="ヴィラ朝日ヶ丘 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+         
+        </div>
+
+        <p class="subline">所在地：佐世保市大潟町60-136｜1993年築｜木造スレート瓦葺2階建｜全14戸｜大学まで徒歩6分</p>
+        <ul class="details">
+          <li>間取り：ワンルーム（7.5洋）</li>
+          <li>家賃：32,000円〜（2階＋1,000円）</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／モニター付インターホン／インターネット無料／洗濯機室内置き／ウォシュレット／IH／エアコン／照明</li>
+          <li>アピール：専用ゴミ捨て場あり（指定ゴミ袋不要）／鍵は家主負担で新品交換</li>
+          <li>備考：隣は家主宅／駐車場・駐輪場あり</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：オシャレな洋風外観と家主さんの管理が行き届いた物件です。隣は家主宅で安心！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'villa')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('villa')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- コーププリメイラ -->
+      <div class="property" id="prima" data-rent="30000" data-distance="16" data-photo="prima" data-address="佐世保市大潟町730-12">
+        <h3>コーププリメイラ</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="コーププリメイラ 写真ギャラリー"></div>
+
+        <div class="video" aria-label="コーププリメイラ 内覧動画">
+           <iframe
+  src="https://www.youtube.com/embed/XDmK86tBpgQ?autoplay=1&mute=1&playsinline=1&loop=1&playlist=XDmK86tBpgQ"
+  title="コーププリメイラ 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+          
+        </div>
+
+        <p class="subline">所在地：佐世保市大潟町730-12｜1987年築｜軽量鉄骨造2階建｜全42戸｜大学まで徒歩16分</p>
+        <ul class="details">
+          <li>間取り：ワンルーム（7洋）</li>
+          <li>家賃：30,000円（水道料金 家賃込み）</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：モニター付インターホン／インターネット無料／洗濯機室内置き／IH／エアコン／照明</li>
+          <li>新品家電：冷蔵庫・洗濯機・電子レンジ付き</li>
+          <li>防犯：防犯カメラ付き</li>
+          <li>アピール：専用ゴミ捨て場あり（指定ゴミ袋不要）／鍵は家主負担で新品交換</li>
+          <li>備考：駐輪場あり</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：なんと水道代家賃込み！内装は白を基調としたオシャレな感じに仕上がっています。家電付きなのも助かる！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'prima')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('prima')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- スチューデントハウス -->
+      <div class="property" id="student" data-rent="28000" data-distance="7" data-photo="student" data-address="佐世保市大潟町60-79">
+        <h3>スチューデントハウス</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="スチューデントハウス 写真ギャラリー"></div>
+
+        <div class="video" aria-label="スチューデントハウス 内覧動画">
+           <iframe
+  src="https://www.youtube.com/embed/G8AlrV8MBBU?autoplay=1&mute=1&playsinline=1&loop=1&playlist=G8AlrV8MBBU"
+  title="スチューデントハウス 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+         
+        </div>
+
+        <p class="subline">所在地：佐世保市大潟町60-79｜大学まで徒歩7分</p>
+        <ul class="details">
+          <li>間取り：ワンルーム（7洋）</li>
+          <li>家賃：28,000円〜（2階＋1,000円）</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／インターネット無料／洗濯機室内置き／IH／エアコン／ウォシュレット／照明</li>
+          <li>新品家電：洗濯機・冷蔵庫・電子レンジ・炊飯器・電気ケトル</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：大学に近く朝が苦手な学生さんには最適。家電付きなのも助かる！</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'student')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('student')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- カサメント庄衛 -->
+      <div class="property" id="casamento" data-rent="45000" data-distance="4" data-photo="casamento" data-address="佐世保市川下町258">
+        <h3>カサメント庄衛</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="カサメント庄衛 写真ギャラリー"></div>
+
+        <div class="video" aria-label="カサメント庄衛 内覧動画">
+           <iframe
+  src="https://www.youtube.com/embed/nt6pAdxMLZ8?autoplay=1&mute=1&playsinline=1&loop=1&playlist=nt6pAdxMLZ8"
+  title="カサメント庄衛 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+          
+        </div>
+
+        <p class="subline">所在地：佐世保市川下町258｜2005年築｜RC造4階建｜全戸角部屋｜大学まで徒歩4分</p>
+        <ul class="details">
+          <li>間取り：1K（7洋＋3.8K）</li>
+          <li>家賃：45,000円〜</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／オートロック／インターネット無料／洗濯機室内置き／ウォシュレット／独立洗面台／エアコン／照明／二重サッシ</li>
+          <li>アピール：大学に一番近いオートロックマンション</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：大学に近く朝が苦手な学生さんには最適。駅、バス停すぐそばで非常に暮らしやすい。</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'casamento')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casamento')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- 澄美アパート -->
+      <div class="property" id="sumi" data-rent="38000" data-distance="1" data-photo="sumi" data-address="佐世保市川下町151-2">
+        <h3>澄美アパート</h3>
+        <span class="status open">募集中</span>
+        <div class="gallery" aria-label="澄美アパート 写真ギャラリー"></div>
+
+        <div class="video" aria-label="澄美アパート 内覧動画">
+          <iframe
+  src="https://www.youtube.com/embed/C56dR2nyem8?autoplay=1&mute=1&playsinline=1&loop=1&playlist=C56dR2nyem8"
+  title="澄美アパート 内覧動画"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+          
+        </div>
+
+        <p class="subline">所在地：川下町151-2｜1983年築｜木造2階建｜全8戸｜大学まで徒歩1分</p>
+        <ul class="details">
+          <li>間取り：2DK（6洋＋6和＋3K）</li>
+          <li>家賃：38,000円〜</li>
+          <li>敷金0・礼金2ヶ月・仲介手数料1ヶ月</li>
+          <li>設備：風呂トイレ別／インターネット無料／洗濯機室内置き／ウォシュレット／エアコン／照明</li>
+          <li>鍵：家主負担で新品に交換</li>
+          <li>駐車場・駐輪場あり</li>
+          <li>契約：2年契約・自動更新・更新料なし</li>
+          <li>コメント：大学まで徒歩1分。朝が苦手な学生さんには最適です。近くにスーパーマーケットがあって暮らしやすい。</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'sumi')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sumi')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ASAHIハイツ（満室） -->
+      <div class="property full" id="asahi" data-rent="0" data-distance="9999" data-photo="asahi" data-address="">
+        <h3>ASAHIハイツ</h3>
+        <span class="status full">満室</span>
+        <div class="gallery" aria-label="ASAHIハイツ 写真ギャラリー"></div>
+        <p class="subline">現在満室です</p>
+        <div class="actions">
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('asahi')">満室切替</button>
+        </div>
+      </div>
+
+      <!-- ウイングハウス（満室） -->
+      <div class="property full" id="wing" data-rent="0" data-distance="9999" data-photo="wing" data-address="">
+        <h3>ウイングハウス</h3>
+        <span class="status full">満室</span>
+        <div class="gallery" aria-label="ウイングハウス 写真ギャラリー"></div>
+        <p class="subline">現在満室です</p>
+        <div class="actions">
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('wing')">満室切替</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ファミリー物件 -->
+  <section class="section" id="family">
+    <h2>ファミリー物件</h2>
+    <p class="meta">佐世保市周辺のファミリー向け物件（2LDK〜／戸建て等）をご案内します。掲載していない物件もございますので、お気軽にお問い合わせください。</p>
+
+    <div class="controls" style="margin-top:10px">
+      <button type="button" onclick="sortFamilyByRent()">家賃が安い順</button>
+    </div>
+
+    <div id="familyList">
+      <div class="property full" id="family-grace" data-rent="65000" data-photo="family-grace" data-address="佐世保市307-1">
+        <h3>グレースハイツ</h3>
+        <span class="status full">満室</span>
+        <div class="gallery" aria-label="グレースハイツ 写真ギャラリー"></div>
+        <p class="subline">所在地：佐世保市307-1｜木造スレート瓦葺き2階建</p>
+        <ul class="details">
+          <li>間取り：3LDK（8和、8洋、9洋、10DK）</li>
+          <li>家賃：62,000円〜</li>
+          <li>敷金：1ヶ月</li>
+          <li>駐車場：2台付き</li>
+          <li>設備：エアコン1台、照明器具、風呂トイレ別、独立洗面台</li>
+        </ul>
+        <div class="actions">
+          <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">お問い合わせ</a>
+          <a class="btn map" href="#" onclick="openMapFromCard(event,'family-grace')">📍 地図</a>
+          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('family-grace')">満室切替</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="section" id="us-housing">
+  <!-- オーナー様向け：賃貸管理 -->
+<section class="section" id="owner-management">
+  <h2>オーナー様向け 賃貸管理</h2>
+
+  <div class="property">
+    <h3>入居募集〜管理〜退去まで、まとめてお任せ</h3>
+    <span class="status open">無料相談</span>
+
+    <p class="subline">
+      佐世保市周辺の賃貸物件について、オーナー様の状況に合わせて管理プランをご提案します。
+      「今は自主管理だけど不安」「空室が長い」「家賃滞納やクレーム対応が大変」など、まずはご相談ください。
+    </p>
+
+    <ul class="details">
+      <li><strong>募集：</strong>募集条件の提案／写真・掲載／内見対応／申込・審査手配</li>
+      <li><strong>契約：</strong>重要事項説明／契約書作成／鍵渡し</li>
+      <li><strong>入居中：</strong>家賃管理／督促／クレーム一次対応／修繕手配／定期巡回（必要に応じて）</li>
+      <li><strong>退去：</strong>解約受付／退去立会い／原状回復手配／精算</li>
+      <li><strong>オプション：</strong>リフォーム提案／空室対策／家賃相場の見直し</li>
+    </ul>
+
+    <div class="actions">
+      <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">相談する</a>
+      <a class="btn mail" href="mailto:arakichiken@gmail.com">メール</a>
+      <a class="btn line" href="https://line.me/ti/p/aKy2JzFA5J" target="_blank" rel="noopener">LINE</a>
+    </div>
+
+    <p class="meta" style="margin-top:10px">
+      ※管理内容・費用は物件規模やご希望により異なります。現状（戸数／築年数／立地／お困りごと）を教えてください。
+    </p>
+  </div>
+</section>
+
+  <h2>米軍住宅管理</h2>
+
+  <div class="property">
+    <h3>米軍住宅の管理・入退去サポート</h3>
+    <span class="status open">無料相談</span>
+
+    <p class="subline">
+      米軍関係者向け住宅の管理業務をサポートします。オーナー様からのご相談お待ちしております。
+    </p>
+
+    <ul class="details">
+      <li>入居前：室内チェック／清掃手配／鍵管理／備品確認</li>
+      <li>入居中：不具合受付／修繕手配／定期点検／連絡代行</li>
+      <li>退去時：立会い／原状回復手配／報告書作成（写真付き）</li>
+      <li>その他：英語対応（必要に応じて）／緊急時対応</li>
+    </ul>
+
+    <div class="actions">
+      <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">相談する</a>
+      <a class="btn mail" href="mailto:arakitiken@gmail.com">メール</a>
+      <a class="btn line" href="https://line.me/ti/p/ffSyBRWGVl" target="_blank" rel="noopener">LINE</a>
+    </div>
+
+    <p class="meta" style="margin-top:10px">
+      ※対応内容・費用は物件規模や契約内容により異なります。まずは状況を教えてください。
+    </p>
+  </div>
+</section>
+
+  <!-- お問い合わせ -->
+  <section class="section" id="contact">
+    <h2>お問い合わせ</h2>
+    <div class="contact-actions">
+      <a class="btn tel" href="tel:0956482540">📞 電話で問い合わせ</a>
+      <a class="btn line" href="https://line.me/ti/p/aKy2JzFA5J" target="_blank" rel="noopener">LINEで問い合わせ</a>
+      <a class="btn mail" href="mailto:arakichiken@gmail.com">メールで問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- 会社概要 -->
+  <section class="section" id="about">
+    <h2>会社概要</h2>
+    <div class="meta">
+      <div><strong>会社名：</strong>荒木地建</div>
+      <div><strong>所在地：</strong>〒858-0914 長崎県佐世保市川下町229-1</div>
+      <div><strong>電話：</strong><a href="tel:0956482540">0956-48-2540</a></div>
+      <div><strong>メール：</strong><a href="mailto:arakichiken@gmail.com">arakichiken@gmail.com</a></div>
+      <div><strong>営業時間：</strong>9:00〜17:00（土日祝休み・予約対応可）</div>
+    </div>
+  </section>
+
+  <footer>
+    © 荒木地建 All rights reserved.
+    <!-- ★ fish は images/fish.jpg に置く -->
+    <img id="adminFish" class="admin-fish" src="images/fish.jpg" alt="管理者" />
+  </footer>
+</main>
+
+<!-- ===== Lightbox DOM（追加） ===== -->
+<div id="lightbox" class="lb" aria-hidden="true">
+  <div class="lb-panel" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+    <div class="lb-top">
+      <div class="lb-title">
+        <span id="lbName">物件名</span>
+        <span id="lbIndex" class="lb-badge">1 / 7</span>
+      </div>
+      <button class="lb-close" type="button" onclick="closeLightbox()">閉じる ✕</button>
+    </div>
+
+    <div class="lb-stage">
+      <button class="lb-arrow lb-prev" type="button" aria-label="前の写真" onclick="lbPrev()">‹</button>
+      <img id="lbImg" alt="拡大写真" />
+      <button class="lb-arrow lb-next" type="button" aria-label="次の写真" onclick="lbNext()">›</button>
+      <div class="lb-help">Escで閉じる / ←→で移動</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================
+   管理者（裏コマンド）
+   フッターの魚を5回タップ
+   ========================= */
+const ADMIN_KEY = "arakitiken_admin_ok";
+const ADMIN_PASSWORD = "arakitiken2026";
+const STATUS_KEY = "arakitiken_status_v1";
+
+/* ---- 満室状態の保存/読込 ---- */
+function loadStatuses(){
+  try { return JSON.parse(localStorage.getItem(STATUS_KEY) || "{}"); }
+  catch(e){ return {}; }
+}
+function saveStatuses(obj){
+  localStorage.setItem(STATUS_KEY, JSON.stringify(obj));
+}
+
+/* ---- 管理者判定/表示 ---- */
+function isAdmin(){ return sessionStorage.getItem(ADMIN_KEY) === "1"; }
+function setAdmin(on){
+  if(on){
+    sessionStorage.setItem(ADMIN_KEY, "1");
+    document.body.classList.add("admin");
+  }else{
+    sessionStorage.removeItem(ADMIN_KEY);
+    document.body.classList.remove("admin");
+  }
+}
+
+/* ---- 1物件の表示を状態に合わせて更新 ---- */
+function applyStatusToCard(box, isFull){
+  if(!box) return;
+  const badge = box.querySelector('.status');
+  const visit = box.querySelector('.btn.visit');
+
+  if(isFull){
+    box.classList.add('full');
+    if(badge){ badge.classList.remove('open'); badge.classList.add('full'); badge.textContent = '満室'; }
+    if(visit) visit.style.display = 'none';
+  }else{
+    box.classList.remove('full');
+    if(badge){ badge.classList.remove('full'); badge.classList.add('open'); badge.textContent = '募集中'; }
+    if(visit) visit.style.display = 'inline-flex';
+  }
+}
+
+/* ---- 保存済み状態をページに反映 ---- */
+function applySavedStatuses(){
+  const st = loadStatuses();
+  Object.keys(st).forEach(id=>{
+    const box = document.getElementById(id);
+    if(box) applyStatusToCard(box, st[id] === true);
+  });
+}
+
+/* ---- 5回タップでログイン/ログアウト ---- */
+function setupAdminFish(){
+  const fish = document.getElementById("adminFish");
+  if(!fish) return;
+
+  let taps = 0;
+  let timer = null;
+
+  fish.addEventListener("click", ()=>{
+    taps++;
+    clearTimeout(timer);
+    timer = setTimeout(()=>{ taps = 0; }, 1500);
+
+    if(taps >= 5){
+      taps = 0;
+
+      if(isAdmin()){
+        const ok = confirm("管理者モードをOFFにしますか？");
+        if(ok){
+          setAdmin(false);
+          alert("管理者モードOFF");
+        }
+        return;
+      }
+
+      const pw = prompt("管理者パスワードを入力してください");
+      if(pw === null) return;
+      if(pw === ADMIN_PASSWORD){
+        setAdmin(true);
+        alert("管理者モードON（満室切替が表示されます）");
+      }else{
+        alert("パスワードが違います");
+      }
+    }
+  });
+}
+
+/* =========================
+   満室切替（管理者のみ）
+   ========================= */
+function toggleStatus(id){
+  if(!isAdmin()){
+    alert("満室切替は管理者のみ操作できます。");
+    return;
+  }
+  const box = document.getElementById(id);
+  if(!box) return;
+
+  const nextIsFull = !box.classList.contains('full');
+  applyStatusToCard(box, nextIsFull);
+
+  const st = loadStatuses();
+  st[id] = nextIsFull;
+  saveStatuses(st);
+
+  // 満室のまとめ直し
+  groupFullCards();
+}
+
+/* =========================
+   満室物件の開閉 + まとめ（学生向けアパート）
+   ========================= */
+let fullOpen = false;
+
+function toggleFullSection(){
+  fullOpen = !fullOpen;
+  const btn = document.getElementById("toggleFullBtn");
+  const label = document.getElementById("toggleFullLabel");
+  btn.setAttribute("aria-expanded", String(fullOpen));
+  label.textContent = fullOpen ? "満室物件を隠す" : "満室物件を見る";
+  applyFullVisibility();
+}
+
+function applyFullVisibility(){
+  document.querySelectorAll("#list .property.full").forEach(card=>{
+    card.classList.toggle("hidden", !fullOpen);
+  });
+}
+
+function groupFullCards(){
+  const list = document.getElementById("list");
+  if(!list) return;
+
+  const cards = [...list.querySelectorAll(".property")];
+  const openCards = cards.filter(c => !c.classList.contains("full"));
+  const fullCards = cards.filter(c => c.classList.contains("full"));
+
+  [...openCards, ...fullCards].forEach(el => list.appendChild(el));
+  applyFullVisibility();
+}
+
+/* =========================
+   並び替え
+   ========================= */
+function sortByRent(){
+  const list = document.getElementById('list');
+  const items = [...list.querySelectorAll('.property')];
+
+  const openItems = items.filter(x => !x.classList.contains("full"));
+  const fullItems = items.filter(x => x.classList.contains("full"));
+
+  openItems.sort((a,b)=> (Number(a.dataset.rent)||999999) - (Number(b.dataset.rent)||999999));
+  [...openItems, ...fullItems].forEach(el=>list.appendChild(el));
+  applyFullVisibility();
+}
+function sortByDistance(){
+  const list = document.getElementById('list');
+  const items = [...list.querySelectorAll('.property')];
+
+  const openItems = items.filter(x => !x.classList.contains("full"));
+  const fullItems = items.filter(x => x.classList.contains("full"));
+
+  openItems.sort((a,b)=> (Number(a.dataset.distance)||999999) - (Number(b.dataset.distance)||999999));
+  [...openItems, ...fullItems].forEach(el=>list.appendChild(el));
+  applyFullVisibility();
+}
+function sortFamilyByRent(){
+  const list = document.getElementById('familyList');
+  if(!list) return;
+  const items = [...list.querySelectorAll('.property')];
+  items.sort((a,b)=> (Number(a.dataset.rent)||999999) - (Number(b.dataset.rent)||999999));
+  items.forEach(el=>list.appendChild(el));
+}
+
+/* =========================
+   お問い合わせへ移動
+   ========================= */
+function jumpContact(){
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+}
+
+/* =========================
+   地図（Google Maps）
+   ========================= */
+function openMapFromCard(ev, id){
+  ev.preventDefault();
+  const box = document.getElementById(id);
+  if(!box) return;
+  const addr = (box.dataset.address || "").trim();
+  const name = (box.querySelector("h3")?.textContent || "").trim();
+  const q = encodeURIComponent(addr ? (name + " " + addr) : name);
+  window.open("https://www.google.com/maps/search/?api=1&query=" + q, "_blank", "noopener");
+}
+
+/* =========================
+   写真：メイン1枚 + サムネ（最大7）
+   images/<folder>/01.jpg〜07.jpg（.jpg/.JPG 両対応）
+   ========================= */
+function attachPhotoFallback(img){
+  img.addEventListener("error", () => {
+    const src = img.getAttribute("src") || "";
+    const tried = img.dataset.tried ? img.dataset.tried.split("|") : [];
+    tried.push(src);
+    img.dataset.tried = tried.join("|");
+
+    if(src.endsWith(".jpg")){
+      const alt = src.slice(0, -4) + ".JPG";
+      if(!tried.includes(alt)){ img.src = alt; return; }
+    }
+    if(src.endsWith(".JPG")){
+      const alt = src.slice(0, -4) + ".jpg";
+      if(!tried.includes(alt)){ img.src = alt; return; }
+    }
+    img.style.display = "none";
+  });
+}
+
+function setActiveThumb(thumbsEl, activeThumb){
+  thumbsEl.querySelectorAll(".thumb").forEach(t=>t.classList.remove("active"));
+  if(activeThumb) activeThumb.classList.add("active");
+}
+
+/* ===== Lightbox state ===== */
+let lbState = {
+  open:false,
+  name:"",
+  sources:[],     // 現在の物件の実在画像src一覧
+  index:0
+};
+
+function openLightbox(name, sources, startIndex){
+  const lb = document.getElementById("lightbox");
+  const img = document.getElementById("lbImg");
+  const nm = document.getElementById("lbName");
+  const idx = document.getElementById("lbIndex");
+
+  lbState.open = true;
+  lbState.name = name || "物件";
+  lbState.sources = sources || [];
+  lbState.index = Math.max(0, Math.min(startIndex || 0, lbState.sources.length - 1));
+
+  nm.textContent = lbState.name;
+
+  // 表示
+  lb.classList.add("open");
+  lb.setAttribute("aria-hidden", "false");
+
+  // スクロール止め
+  document.body.style.overflow = "hidden";
+
+  renderLightbox();
+  // フォーカスは閉じるボタンに
+  lb.querySelector(".lb-close")?.focus?.();
+}
+
+function renderLightbox(){
+  const img = document.getElementById("lbImg");
+  const idx = document.getElementById("lbIndex");
+  const prev = document.querySelector(".lb-prev");
+  const next = document.querySelector(".lb-next");
+
+  const total = lbState.sources.length;
+  const current = total ? lbState.sources[lbState.index] : "";
+
+  img.style.display = total ? "" : "none";
+  img.src = current || "";
+  idx.textContent = total ? `${lbState.index + 1} / ${total}` : `0 / 0`;
+
+  if(prev) prev.style.display = (total > 1) ? "" : "none";
+  if(next) next.style.display = (total > 1) ? "" : "none";
+}
+
+function closeLightbox(){
+  const lb = document.getElementById("lightbox");
+  if(!lbState.open) return;
+
+  lbState.open = false;
+  lb.classList.remove("open");
+  lb.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function lbPrev(){
+  if(!lbState.sources.length) return;
+  lbState.index = (lbState.index - 1 + lbState.sources.length) % lbState.sources.length;
+  renderLightbox();
+}
+function lbNext(){
+  if(!lbState.sources.length) return;
+  lbState.index = (lbState.index + 1) % lbState.sources.length;
+  renderLightbox();
+}
+
+/* ライトボックス：背景クリックで閉じる */
+(function(){
+  const lb = document.getElementById("lightbox");
+  if(!lb) return;
+  lb.addEventListener("click", (e)=>{
+    // 透明背景部分だけで閉じる（パネル内は閉じない）
+    if(e.target === lb) closeLightbox();
+  });
+})();
+
+/* キーボード操作 */
+document.addEventListener("keydown", (e)=>{
+  if(!lbState.open) return;
+  if(e.key === "Escape"){ closeLightbox(); }
+  if(e.key === "ArrowLeft"){ lbPrev(); }
+  if(e.key === "ArrowRight"){ lbNext(); }
+});
+
+/* スワイプ（スマホで左右送り） */
+(function(){
+  const stage = document.querySelector(".lb-stage");
+  if(!stage) return;
+  let sx=0, sy=0, moved=false;
+  stage.addEventListener("touchstart",(e)=>{
+    if(!lbState.open) return;
+    const t = e.touches[0];
+    sx=t.clientX; sy=t.clientY; moved=false;
+  }, {passive:true});
+  stage.addEventListener("touchmove",(e)=>{
+    if(!lbState.open) return;
+    const t = e.touches[0];
+    const dx = t.clientX - sx;
+    const dy = t.clientY - sy;
+    if(Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) moved=true;
+  }, {passive:true});
+  stage.addEventListener("touchend",(e)=>{
+    if(!lbState.open || !moved) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - sx;
+    if(dx > 40) lbPrev();
+    if(dx < -40) lbNext();
+  }, {passive:true});
+})();
+
+function buildGalleryForCard(card){
+  const folder = (card.dataset.photo || "").trim();
+  const gallery = card.querySelector(".gallery");
+  if(!folder || !gallery) return;
+
+  if(gallery.dataset.built === "1") return;
+  gallery.dataset.built = "1";
+
+  const title = (card.querySelector("h3")?.textContent || "物件").trim();
+
+  // メイン
+  const main = document.createElement("div");
+  main.className = "gallery-main";
+
+  const mainImg = document.createElement("img");
+  mainImg.alt = title + " メイン写真";
+  mainImg.loading = "lazy";
+  mainImg.src = `images/${folder}/01.jpg`;
+  attachPhotoFallback(mainImg);
+
+  const hint = document.createElement("div");
+  hint.className = "hint";
+  hint.textContent = "タップで拡大 / 下の写真で切替";
+
+  main.appendChild(mainImg);
+  main.appendChild(hint);
+
+  const thumbs = document.createElement("div");
+  thumbs.className = "thumbs";
+
+  // 実在画像一覧（ライトボックス用）
+  const sources = [];
+  const thumbEls = []; // index対応
+
+  const switchMainTo = (src, thumbEl) => {
+    mainImg.style.display = "";
+    mainImg.dataset.tried = "";
+    mainImg.src = src;
+    setActiveThumb(thumbs, thumbEl);
+  };
+
+  for(let i=1; i<=15; i++){
+    const num = String(i).padStart(2,"0");
+
+    const thumb = document.createElement("div");
+    thumb.className = "thumb";
+
+    const timg = document.createElement("img");
+    timg.alt = title + " 写真" + i;
+    timg.loading = "lazy";
+    timg.src = `images/${folder}/${num}.jpg`;
+    attachPhotoFallback(timg);
+
+    // 表示できなかったらサムネごと隠す
+    timg.addEventListener("error", () => {
+      setTimeout(()=> {
+        if(timg.style.display === "none"){ thumb.style.display = "none"; }
+      }, 0);
+    });
+
+    timg.addEventListener("load", ()=>{
+      // 1回だけ登録（同じsrcが入らないように）
+      if(!sources.includes(timg.src)){
+        sources.push(timg.src);
+        thumbEls.push(thumb);
+        // クリック時に index 取れるよう data-index
+        thumb.dataset.idx = String(sources.length - 1);
+      }
+    });
+
+    thumb.appendChild(timg);
+
+    // サムネを押したらメイン切替
+    thumb.addEventListener("click", ()=>{
+      if(timg.style.display === "none") return;
+      switchMainTo(timg.src, thumb);
+    });
+
+    if(i === 1) thumb.classList.add("active");
+    thumbs.appendChild(thumb);
+  }
+
+  // メインを押したらライトボックス
+  main.addEventListener("click", ()=>{
+    // sourcesがまだ揃ってない場合もあるので、今見えてるthumbから再構築
+    const currentSources = [];
+    const th = [...thumbs.querySelectorAll(".thumb img")];
+    th.forEach(im=>{
+      if(im && im.style.display !== "none" && im.getAttribute("src")){
+        // ブラウザが解決した absolute を使う（im.src）
+        currentSources.push(im.src);
+      }
+    });
+
+    // 現在メインが表示してるsrcのindex
+    const currentSrc = mainImg.src;
+    const startIndex = Math.max(0, currentSources.indexOf(currentSrc));
+
+    openLightbox(title, currentSources, startIndex);
+  });
+
+  // サムネを長押し/タップでも拡大したい場合：ダブルクリック対応（PC）
+  thumbs.addEventListener("dblclick", (e)=>{
+    const imgEl = e.target?.closest?.("img");
+    if(!imgEl) return;
+    const currentSources = [...thumbs.querySelectorAll(".thumb img")]
+      .filter(im => im && im.style.display !== "none")
+      .map(im => im.src);
+    const startIndex = Math.max(0, currentSources.indexOf(imgEl.src));
+    openLightbox(title, currentSources, startIndex);
+  });
+
+  gallery.appendChild(main);
+  gallery.appendChild(thumbs);
+}
+
+function buildGalleries(){
+  document.querySelectorAll(".property[data-photo]").forEach(card=>{
+    buildGalleryForCard(card);
+  });
+}
+/* =========================
+   YouTube：サムネ表示 → クリックで再生
+   （他の動画は自動停止）
+   ========================= */
+function setupYouTubeClickToPlay(){
+  // サムネ画像セット
+  document.querySelectorAll('.yt[data-video-id] .yt-thumb').forEach(thumb=>{
+    const wrap = thumb.closest('.yt');
+    const id = wrap.dataset.videoId;
+    thumb.style.backgroundImage = `url("https://img.youtube.com/vi/${id}/hqdefault.jpg")`;
+  });
+
+  // クリックで再生
+  document.addEventListener('click', (e)=>{
+    const wrap = e.target.closest('.yt[data-video-id]');
+    if(!wrap) return;
+
+    const id = wrap.dataset.videoId;
+
+    // 他の再生中を止めてサムネに戻す
+    document.querySelectorAll('.yt.is-playing').forEach(el=>{
+      if(el !== wrap){
+        const vid = el.dataset.videoId;
+        el.classList.remove('is-playing');
+        el.innerHTML = `<div class="yt-thumb"><span class="yt-play" aria-hidden="true">▶</span></div>`;
+        el.querySelector('.yt-thumb').style.backgroundImage = `url("https://img.youtube.com/vi/${vid}/hqdefault.jpg")`;
+      }
+    });
+
+    // 自分を再生
+    wrap.classList.add('is-playing');
+    wrap.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1&playsinline=1"
+        title="内覧動画"
+        allow="autoplay; encrypted-media; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    `;
+  });
+}
+
+/* =========================
+   初期化
+   ========================= */
+document.addEventListener("DOMContentLoaded", ()=>{
+  if(isAdmin()) document.body.classList.add("admin");
+  setupAdminFish();
+
+  buildGalleries();
+  applySavedStatuses();
+  setupYouTubeClickToPlay();
+
+  // 学生向けアパートの満室をまとめて閉じる
+  fullOpen = false;
+  groupFullCards();
+});
+</script>
+
+</body>
+</html>
