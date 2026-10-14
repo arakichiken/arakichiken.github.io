@@ -1574,126 +1574,84 @@ document.addEventListener("keydown", (e)=>{
   }, {passive:true});
 })();
 
+// 登録済みの写真枚数。存在しない画像へのアクセスを防ぐ。
+const PROPERTY_PHOTO_COUNTS = {
+  arthouse:9, asahi:7, casa1:7, casa2:7, casamento:7,
+  "family-grace":7, ichiban:7, niban:7, north:7,
+  prima:7, sanban:7, student:7, sumi:7, villa:7, wing:6
+};
+
 function buildGalleryForCard(card){
   const folder = (card.dataset.photo || "").trim();
   const gallery = card.querySelector(".gallery");
-  if(!folder || !gallery) return;
-
-  if(gallery.dataset.built === "1") return;
+  const count = PROPERTY_PHOTO_COUNTS[folder] || 0;
+  if(!gallery || !count || gallery.dataset.built === "1") return;
   gallery.dataset.built = "1";
 
   const title = (card.querySelector("h3")?.textContent || "物件").trim();
-
-  // メイン
+  const sources = Array.from({length:count}, (_,i) =>
+    `images/${folder}/${String(i+1).padStart(2,"0")}.jpg`
+  );
   const main = document.createElement("div");
   main.className = "gallery-main";
-
   const mainImg = document.createElement("img");
   mainImg.alt = title + " メイン写真";
   mainImg.loading = "lazy";
-  mainImg.src = `images/${folder}/01.jpg`;
-  attachPhotoFallback(mainImg);
-
+  mainImg.src = sources[0];
   const hint = document.createElement("div");
   hint.className = "hint";
   hint.textContent = "タップで拡大 / 下の写真で切替";
-
-  main.appendChild(mainImg);
-  main.appendChild(hint);
+  main.append(mainImg, hint);
 
   const thumbs = document.createElement("div");
   thumbs.className = "thumbs";
+  const available = new Set();
+  const thumbElements = [];
 
-  // 実在画像一覧（ライトボックス用）
-  const sources = [];
-  const thumbEls = []; // index対応
-
-  const switchMainTo = (src, thumbEl) => {
-    mainImg.style.display = "";
-    mainImg.dataset.tried = "";
-    mainImg.src = src;
-    setActiveThumb(thumbs, thumbEl);
-  };
-
-  for(let i=1; i<=15; i++){
-    const num = String(i).padStart(2,"0");
-
+  sources.forEach((src, i)=>{
     const thumb = document.createElement("div");
     thumb.className = "thumb";
-
-    const timg = document.createElement("img");
-    timg.alt = title + " 写真" + i;
-    timg.loading = "lazy";
-    timg.src = `images/${folder}/${num}.jpg`;
-    attachPhotoFallback(timg);
-
-    // 表示できなかったらサムネごと隠す
-    timg.addEventListener("error", () => {
-      setTimeout(()=> {
-        if(timg.style.display === "none"){ thumb.style.display = "none"; }
-      }, 0);
+    const img = document.createElement("img");
+    img.alt = title + " 写真" + (i+1);
+    img.loading = "lazy";
+    img.src = src;
+    img.addEventListener("load", ()=> available.add(i));
+    img.addEventListener("error", ()=> {
+      available.delete(i);
+      thumb.style.display = "none";
     });
-
-    timg.addEventListener("load", ()=>{
-      // 1回だけ登録（同じsrcが入らないように）
-      if(!sources.includes(timg.src)){
-        sources.push(timg.src);
-        thumbEls.push(thumb);
-        // クリック時に index 取れるよう data-index
-        thumb.dataset.idx = String(sources.length - 1);
-      }
-    });
-
-    thumb.appendChild(timg);
-
-    // サムネを押したらメイン切替
     thumb.addEventListener("click", ()=>{
-      if(timg.style.display === "none") return;
-      switchMainTo(timg.src, thumb);
+      if(!available.has(i)) return;
+      mainImg.src = src;
+      setActiveThumb(thumbs, thumb);
     });
-
-    if(i === 1) thumb.classList.add("active");
+    if(i === 0) thumb.classList.add("active");
+    thumb.appendChild(img);
     thumbs.appendChild(thumb);
-  }
+    thumbElements.push(thumb);
+  });
 
-  // メインを押したらライトボックス
   main.addEventListener("click", ()=>{
-    // sourcesがまだ揃ってない場合もあるので、今見えてるthumbから再構築
-    const currentSources = [];
-    const th = [...thumbs.querySelectorAll(".thumb img")];
-    th.forEach(im=>{
-      if(im && im.style.display !== "none" && im.getAttribute("src")){
-        // ブラウザが解決した absolute を使う（im.src）
-        currentSources.push(im.src);
-      }
-    });
-
-    // 現在メインが表示してるsrcのindex
-    const currentSrc = mainImg.src;
-    const startIndex = Math.max(0, currentSources.indexOf(currentSrc));
-
-    openLightbox(title, currentSources, startIndex);
+    const validIndices = sources.map((_,i)=>i).filter(i=>available.has(i));
+    if(!validIndices.length) return;
+    const validSources = validIndices.map(i=>new URL(sources[i], document.baseURI).href);
+    const selected = validSources.indexOf(mainImg.src);
+    openLightbox(title, validSources, Math.max(0,selected));
   });
-
-  // サムネを長押し/タップでも拡大したい場合：ダブルクリック対応（PC）
-  thumbs.addEventListener("dblclick", (e)=>{
-    const imgEl = e.target?.closest?.("img");
-    if(!imgEl) return;
-    const currentSources = [...thumbs.querySelectorAll(".thumb img")]
-      .filter(im => im && im.style.display !== "none")
-      .map(im => im.src);
-    const startIndex = Math.max(0, currentSources.indexOf(imgEl.src));
-    openLightbox(title, currentSources, startIndex);
+  thumbs.addEventListener("dblclick", e=>{
+    const thumb = e.target.closest(".thumb");
+    if(!thumb) return;
+    const i = thumbElements.indexOf(thumb);
+    if(i < 0 || !available.has(i)) return;
+    const validIndices = sources.map((_,j)=>j).filter(j=>available.has(j));
+    const validSources = validIndices.map(j=>new URL(sources[j], document.baseURI).href);
+    openLightbox(title, validSources, validIndices.indexOf(i));
   });
-
-  gallery.appendChild(main);
-  gallery.appendChild(thumbs);
+  gallery.append(main, thumbs);
 }
 
 function buildGalleries(){
-  document.querySelectorAll(".property[data-photo]").forEach(card=>{
-    buildGalleryForCard(card);
-  });
+  document.querySelectorAll(".property[data-photo]").forEach(buildGalleryForCard);
 }
 /* =========================
    YouTube：サムネ表示 → クリックで再生
