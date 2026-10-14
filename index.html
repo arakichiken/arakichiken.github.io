@@ -1613,15 +1613,16 @@ function buildGalleryForCard(card){
     thumb.className = "thumb";
     const img = document.createElement("img");
     img.alt = title + " 写真" + (i+1);
-    img.loading = "lazy";
+    img.loading = "eager";
     img.src = src;
     img.addEventListener("load", ()=> available.add(i));
     img.addEventListener("error", ()=> {
       available.delete(i);
+      img.dataset.failed = "1";
       thumb.style.display = "none";
     });
     thumb.addEventListener("click", ()=>{
-      if(!available.has(i)) return;
+      if(img.dataset.failed === "1") return;
       mainImg.src = src;
       setActiveThumb(thumbs, thumb);
     });
