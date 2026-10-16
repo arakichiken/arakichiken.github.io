@@ -790,13 +790,11 @@ header.site-header{
         <h3>アートハウス</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="アートハウス 写真ギャラリー"></div>
-        <div class="video-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/20RvoKLLGbI?autoplay=1&mute=1&playsinline=1&loop=1&playlist=20RvoKLLGbI"
-            title="アートハウス 内覧動画"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            loading="lazy"></iframe>
+        <div class="video" aria-label="アートハウス 内覧動画">
+          <video autoplay muted loop playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="アートハウス 内覧動画">
+            <source src="arthouse_web.mp4" type="video/mp4">
+            お使いのブラウザは動画再生に対応していません。
+          </video>
         </div>
         <p class="subline">所在地：佐世保市相浦町740-2｜1988年築｜大学まで徒歩9分</p>
         <ul class="details">
