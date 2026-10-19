@@ -235,6 +235,7 @@
     }
 
     .subline{margin:10px 0 10px;color:#334155;font-size:14px;line-height:1.6}
+    .property-rent-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 4px;padding:10px 12px;border:1px solid #dce7df;border-radius:10px;background:#f7fbf7}.property-rent-summary .rent-label{font-size:13px;color:#45614e;font-weight:700}.property-rent-summary strong{font-size:18px;color:#1f5135;text-align:right}.property-details{margin-top:8px}.property-details>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border:1px solid #cbded0;border-radius:10px;background:#fff;color:#245c39;font-weight:700;font-size:14px;user-select:none}.property-details>summary::-webkit-details-marker{display:none}.property-details>summary::after{content:"＋";font-size:18px;line-height:1}.property-details[open]>summary::after{content:"−"}.property-details[open]>summary{margin-bottom:12px;background:#f4f9f5}.property-details .video{margin-top:10px}
     .details-table{margin:12px 0 4px;border:1px solid #dce7df;border-radius:12px;overflow:hidden;font-size:14px;line-height:1.65}.detail-row{display:grid;grid-template-columns:minmax(96px,32%) minmax(0,1fr);border-bottom:1px solid #e5ece7}.detail-row:last-child{border-bottom:0}.detail-row dt{margin:0;padding:9px 11px;background:#f0f6f1;font-weight:700;color:#345343}.detail-row dd{margin:0;padding:9px 11px;overflow-wrap:anywhere;color:#334155}.detail-note{display:block}.detail-note dd{background:#fafcfb}@media(max-width:480px){.details-table{font-size:13px}.detail-row{grid-template-columns:minmax(88px,33%) minmax(0,1fr)}.detail-row dt,.detail-row dd{padding:8px}}
     .details{margin:0;padding-left:18px;color:#334155;font-size:14px;line-height:1.7}
     .details li{margin:0 0 4px}
@@ -688,6 +689,9 @@ header.site-header{
              <h3>プランドール壱番館</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="プランドール壱番館 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>50,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
         
          <div class="video" aria-label="プランドール壱番館 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="プランドール壱番館 内覧動画">
@@ -714,6 +718,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'ichiban')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('ichiban')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- ② プランドール弐番館 -->
@@ -721,6 +727,9 @@ header.site-header{
         <h3>プランドール弐番館</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="プランドール弐番館 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>53,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="プランドール弐番館 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="プランドール弐番館 内覧動画">
@@ -747,6 +756,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'niban')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('niban')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- ③ プランドール参番館 -->
@@ -754,6 +765,9 @@ header.site-header{
         <h3>プランドール参番館</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="プランドール参番館 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>53,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 　　　　 <div class="video" aria-label="プランドール参番館 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="プランドール参番館 内覧動画">
             <source src="sanbankan_ready.mp4" type="video/mp4">
@@ -778,6 +792,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'sanban')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sanban')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- アートハウス -->
@@ -785,6 +801,9 @@ header.site-header{
         <h3>アートハウス</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="アートハウス 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>30,000円／月・共益費なし</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
         <div class="video" aria-label="アートハウス 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="アートハウス 内覧動画">
             <source src="arthouse_web.mp4" type="video/mp4">
@@ -806,6 +825,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'arthouse')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('arthouse')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- ノースリバー -->
@@ -813,6 +834,9 @@ header.site-header{
         <h3>ノースリバー</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="ノースリバー 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>35,000円〜（2階＋1,000円）</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="ノースリバー 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="ノースリバー 内覧動画">
@@ -837,6 +861,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'north')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('north')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- カーサシティⅠ -->
@@ -844,6 +870,9 @@ header.site-header{
         <h3>カーサシティⅠ</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="カーサシティⅠ 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>32,000円〜（2階＋1,000円）</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="カーサシティⅠ 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="カーサシティⅠ 内覧動画">
@@ -868,6 +897,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'casa1')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casa1')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- カーサシティⅡ -->
@@ -875,6 +906,9 @@ header.site-header{
         <h3>カーサシティⅡ</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="カーサシティⅡ 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>33,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="カーサシティⅡ 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="カーサシティⅡ 内覧動画">
@@ -882,6 +916,8 @@ header.site-header{
             お使いのブラウザは動画再生に対応していません。
           </video>
         </div>
+      
+        </details>
       </div>
 
       <!-- ヴィラ朝日ヶ丘 -->
@@ -889,6 +925,9 @@ header.site-header{
         <h3>ヴィラ朝日ヶ丘</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="ヴィラ朝日ヶ丘 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>33,000円〜（2階＋1,000円）</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="ヴィラ朝日ヶ丘 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="ヴィラ朝日ヶ丘 内覧動画">
@@ -913,6 +952,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'villa')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('villa')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- コーププリメイラ -->
@@ -920,6 +961,9 @@ header.site-header{
         <h3>コーププリメイラ</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="コーププリメイラ 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>32,000円（水道料金 家賃込み）</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="コーププリメイラ 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="コーププリメイラ 内覧動画">
@@ -946,6 +990,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'prima')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('prima')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- スチューデントハウス -->
@@ -953,6 +999,9 @@ header.site-header{
         <h3>スチューデントハウス</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="スチューデントハウス 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>29,000円〜（2階＋1,000円）</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="スチューデントハウス 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="スチューデントハウス 内覧動画">
@@ -977,6 +1026,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'student')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('student')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- カサメント庄衛 -->
@@ -984,6 +1035,9 @@ header.site-header{
         <h3>カサメント庄衛</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="カサメント庄衛 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>45,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="カサメント庄衛 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="カサメント庄衛 内覧動画">
@@ -1008,6 +1062,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'casamento')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casamento')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- 澄美アパート -->
@@ -1015,6 +1071,9 @@ header.site-header{
         <h3>澄美アパート</h3>
         <span class="status open">募集中</span>
         <div class="gallery" aria-label="澄美アパート 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>38,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
 
         <div class="video" aria-label="澄美アパート 内覧動画">
           <iframe
@@ -1042,6 +1101,8 @@ header.site-header{
           <a class="btn map" href="#" onclick="openMapFromCard(event,'sumi')">📍 地図</a>
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sumi')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- ASAHIハイツ（満室） -->
@@ -1049,6 +1110,9 @@ header.site-header{
         <h3>ASAHIハイツ</h3>
         <span class="status full">満室</span>
         <div class="gallery" aria-label="ASAHIハイツ 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>満室</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
         <div class="video" aria-label="ASAHIハイツ 内覧動画">
           <video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;" aria-label="ASAHIハイツ 内覧動画">
             <source src="asahi_web.mp4" type="video/mp4">
@@ -1059,6 +1123,8 @@ header.site-header{
         <div class="actions">
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('asahi')">満室切替</button>
         </div>
+      
+        </details>
       </div>
 
       <!-- ウイングハウス（満室） -->
@@ -1066,6 +1132,9 @@ header.site-header{
         <h3>ウイングハウス</h3>
         <span class="status full">満室</span>
         <div class="gallery" aria-label="ウイングハウス 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>満室</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
         <p class="subline">現在満室です</p>
         <div class="actions">
           <button class="btn toggle admin-only" type="button" onclick="toggleStatus('wing')">満室切替</button>
@@ -1082,13 +1151,18 @@ header.site-header{
 
     <div class="controls" style="margin-top:10px">
       <button type="button" onclick="sortFamilyByRent()">家賃が安い順</button>
-    </div>
+    
+        </details>
+      </div>
 
     <div id="familyList">
       <div class="property full" id="family-grace" data-rent="65000" data-photo="family-grace" data-address="佐世保市307-1">
         <h3>グレースハイツ</h3>
         <span class="status full">満室</span>
         <div class="gallery" aria-label="グレースハイツ 写真ギャラリー"></div>
+        <div class="property-rent-summary"><span class="rent-label">家賃</span><strong>62,000円〜</strong></div>
+        <details class="property-details"><summary>物件の詳細を見る</summary>
+
         <p class="subline">所在地：佐世保市307-1｜木造スレート瓦葺き2階建</p>
         <dl class="details-table">
   <div class="detail-row"><dt>間取り</dt><dd>3LDK（8和、8洋、9洋、10DK）</dd></div>
@@ -1669,7 +1743,9 @@ function setupYouTubeClickToPlay(){
       if(el !== wrap){
         const vid = el.dataset.videoId;
         el.classList.remove('is-playing');
-        el.innerHTML = `<div class="yt-thumb"><span class="yt-play" aria-hidden="true">▶</span></div>`;
+        el.innerHTML = `<div class="yt-thumb"><span class="yt-play" aria-hidden="true">▶</span>
+        </details>
+      </div>`;
         el.querySelector('.yt-thumb').style.backgroundImage = `url("https://img.youtube.com/vi/${vid}/hqdefault.jpg")`;
       }
     });
