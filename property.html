@@ -43,44 +43,15 @@ async function init(){
   const sub=card.querySelector(".subline");if(sub){const p=document.createElement("p");p.className="subline";p.textContent=sub.textContent.trim();root.append(p)}
   const table=card.querySelector(".details-table");
   if(table){
-    const rows=[...table.querySelectorAll(".detail-row")].map(row=>({
-      label:row.querySelector("dt")?.textContent.trim()||"備考",
-      value:row.querySelector("dd")?.textContent.trim()||""
-    })).filter(row=>row.value);
-    const used=new Set();
-    const sections=[
-      ["基本情報",/^(間取り|所在地|築年|構造|階数|面積|専有面積|方位|大学|交通|アクセス)$/],
-      ["家賃・毎月の費用",/^(家賃|賃料|共益費|管理費|駐車場|水道|町費|月額)/],
-      ["初期費用",/^(敷金|礼金|仲介手数料|保証|火災保険|保険|鍵|初期費用|契約金)/],
-      ["設備・物件の特徴",/^(設備|アピール|特徴|インターネット|ネット|駐輪場|セキュリティ)/],
-      ["契約・入居条件",/^(契約|更新|入居|退去|清掃|備考)/],
-      ["おすすめポイント・その他",/^(コメント|その他)/]
-    ];
-    const addSection=(name,entries)=>{
-      if(!entries.length)return;
-      const wrapper=document.createElement("section");wrapper.className="info-group";
-      const h=document.createElement("h2");h.className="section-title";h.textContent=name;wrapper.append(h);
-      const dl=document.createElement("dl");dl.className="details-table";
-      entries.forEach(item=>{
-        const row=document.createElement("div");row.className="detail-row";
-        const dt=document.createElement("dt");dt.textContent=item.label;
-        const dd=document.createElement("dd");dd.textContent=item.value;
-        row.append(dt,dd);dl.append(row);
-      });
-      wrapper.append(dl);root.append(wrapper);
-    };
-    sections.forEach(([name,pattern])=>{
-      const found=rows.filter((row,i)=>!used.has(i)&&pattern.test(row.label));
-      found.forEach(row=>used.add(rows.indexOf(row)));
-      addSection(name,found);
-    });
-    addSection("その他の物件情報",rows.filter((row,i)=>!used.has(i)));
+    heading("物件情報・賃貸条件");
+    root.append(document.importNode(table,true));
   }else{
-    heading("物件の条件");
-    const p=document.createElement("p");p.className="empty-detail";p.textContent="詳しい賃貸条件はお問い合わせください。";root.append(p);
+    heading("物件情報・賃貸条件");
+    const p=document.createElement("p");p.className="empty-detail";
+    p.textContent="詳しい条件はお問い合わせください。";root.append(p);
   }
   const notice=document.createElement("p");notice.className="info-note";
-  notice.textContent="掲載情報は物件・部屋ごとに異なる場合があります。最新の募集状況、初期費用、入居可能日などはお問い合わせください。";
+  notice.textContent="掲載内容はお部屋や募集時期によって異なる場合があります。最新の条件はお問い合わせください。";
   root.append(notice);
   const vid=card.querySelector(".video video");if(vid){heading("内覧動画");const div=document.createElement("div");div.className="video";div.append(document.importNode(vid,true));root.append(div)}
   const actions=document.createElement("div");actions.className="actions";
