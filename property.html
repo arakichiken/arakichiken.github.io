@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>物件詳細｜荒木地建</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5faf5;color:#1b2930;font-family:system-ui,-apple-system,"Yu Gothic",sans-serif}header{background:#fff;border-bottom:1px solid #dfe9e1;padding:15px max(16px,calc((100% - 1000px)/2))}header a{color:#1e7842;text-decoration:none;font-weight:700}main{max-width:1000px;margin:auto;padding:20px 14px 50px}.back{display:inline-block;margin-bottom:14px;color:#267646}.sheet{background:white;border:1px solid #dce8df;border-radius:18px;padding:clamp(15px,3vw,28px);box-shadow:0 10px 28px #123b1a0d}h1{font-size:clamp(23px,4vw,32px);margin:8px 0 14px}.status{display:inline-block;padding:4px 12px;border-radius:20px;background:#e8f7ec;color:#186839;font-size:13px;font-weight:700}.status.full{background:#eee;color:#555}.rent{font-size:25px;color:#176b38;font-weight:800;margin:12px 0 20px}.rent small{font-size:14px;color:#53645a;margin-right:8px}.main-photo{width:100%;aspect-ratio:16/10;object-fit:contain;background:#edf4ee;border-radius:12px;cursor:zoom-in}.thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 0}.thumbs button{border:2px solid transparent;border-radius:8px;background:none;padding:0;flex:0 0 86px;cursor:pointer}.thumbs button.active{border-color:#28914d}.thumbs img{width:100%;height:62px;object-fit:cover;border-radius:6px}.section-title{font-size:19px;margin:26px 0 12px;border-left:5px solid #8fca5a;padding-left:10px}.video video{width:100%;max-height:550px;background:#000;border-radius:12px}.subline{color:#53665a;line-height:1.8}.details-table{border:1px solid #dce7df;border-radius:12px;overflow:hidden;margin:0}.detail-row{display:grid;grid-template-columns:minmax(100px,32%) 1fr;border-bottom:1px solid #e5ece7}.detail-row:last-child{border-bottom:0}.detail-row dt{padding:10px;background:#f0f7f1;font-weight:700}.detail-row dd{padding:10px;margin:0;overflow-wrap:anywhere}.detail-note{display:block}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.actions a{flex:1;min-width:180px;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:700;background:#238447;color:#fff}.actions a.map{background:#f0f7f1;color:#1b6638;border:1px solid #c9e0cd}.error{padding:20px;background:white;border-radius:12px}.lightbox{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:100;padding:25px}.lightbox.open{display:flex}.lightbox img{max-width:95vw;max-height:85vh;object-fit:contain}.close{position:absolute;top:12px;right:15px;color:white;background:none;border:0;font-size:36px;cursor:pointer}
+</style></head><body><header><a href="./">荒木地建｜佐世保市の賃貸物件</a></header><main><a class="back" href="./#apartments">← 物件一覧に戻る</a><div id="content" class="sheet"><p>物件情報を読み込んでいます…</p></div></main>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="写真を拡大"><button class="close" id="close" aria-label="閉じる">×</button><img id="largePhoto" alt="拡大写真"></div>
+<script>
+const photoCounts={arthouse:9,asahi:9,casa1:9,casa2:9,casamento:9,"family-grace":7,ichiban:9,niban:9,north:9,prima:9,sanban:9,student:9,sumi:7,villa:9,wing:9};
+const id=new URLSearchParams(location.search).get("id");
+const root=document.getElementById("content");
+const lightbox=document.getElementById("lightbox");
+document.getElementById("close").onclick=()=>lightbox.classList.remove("open");
+lightbox.onclick=e=>{if(e.target===lightbox)lightbox.classList.remove("open")};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")lightbox.classList.remove("open")});
+async function init(){
+ try{
+  if(!id||!/^[a-z0-9-]+$/.test(id))throw Error("物件が指定されていません");
+  const response=await fetch("./index.html",{cache:"no-cache"});
+  if(!response.ok)throw Error("物件情報を取得できませんでした");
+  const doc=new DOMParser().parseFromString(await response.text(),"text/html");
+  const card=[...doc.querySelectorAll(".property")].find(el=>el.id===id);
+  if(!card)throw Error("物件が見つかりません");
+  const title=card.querySelector("h3")?.textContent.trim()||"物件";
+  document.title=title+"｜荒木地建";
+  root.replaceChildren();
+  const h=document.createElement("h1");h.textContent=title;root.append(h);
+  const status=card.querySelector(".status");
+  if(status){const el=document.createElement("span");el.className="status "+(status.classList.contains("full")?"full":"");el.textContent=status.textContent.trim();root.append(el)}
+  const rent=card.querySelector(".property-rent-summary strong")?.textContent.trim()||"お問い合わせください";
+  const rentDiv=document.createElement("div");rentDiv.className="rent";const small=document.createElement("small");small.textContent="家賃";rentDiv.append(small,document.createTextNode(rent));root.append(rentDiv);
+  const folder=card.dataset.photo||id;
+  const count=photoCounts[folder]||0;
+  const photos=Array.from({length:count},(_,i)=>"images/"+encodeURIComponent(folder)+"/"+String(i+1).padStart(2,"0")+".jpg");
+  if(photos.length){
+   const main=document.createElement("img");main.className="main-photo";main.src=photos[0];main.alt=title+" 写真";root.append(main);
+   const thumbs=document.createElement("div");thumbs.className="thumbs";root.append(thumbs);
+   photos.forEach((src,i)=>{const btn=document.createElement("button");btn.type="button";btn.className=i===0?"active":"";const img=document.createElement("img");img.src=src;img.alt=title+" 写真"+(i+1);img.onerror=()=>btn.remove();btn.append(img);btn.onclick=()=>{main.src=src;thumbs.querySelectorAll("button").forEach(x=>x.classList.remove("active"));btn.classList.add("active")};thumbs.append(btn)});
+   main.onclick=()=>{document.getElementById("largePhoto").src=main.src;lightbox.classList.add("open")};
+  }
+  const sub=card.querySelector(".subline");if(sub){const p=document.createElement("p");p.className="subline";p.textContent=sub.textContent.trim();root.append(p)}
+  const table=card.querySelector(".details-table");if(table){heading("物件の詳細");root.append(document.importNode(table,true))}
+  const vid=card.querySelector(".video video");if(vid){heading("内覧動画");const div=document.createElement("div");div.className="video";div.append(document.importNode(vid,true));root.append(div)}
+  const actions=document.createElement("div");actions.className="actions";
+  const contact=document.createElement("a");contact.href="./#contact";contact.textContent="お問い合わせ";actions.append(contact);
+  const address=card.dataset.address;
+  if(address){const map=document.createElement("a");map.className="map";map.href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(address);map.target="_blank";map.rel="noopener noreferrer";map.textContent="📍 地図を見る";actions.append(map)}
+  root.append(actions);
+ }catch(e){root.innerHTML="";const p=document.createElement("p");p.className="error";p.textContent=e.message;root.append(p)}
+}
+function heading(label){const h=document.createElement("h2");h.className="section-title";h.textContent=label;root.append(h)}
+init();
+</script></body></html>
