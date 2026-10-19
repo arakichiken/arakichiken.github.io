@@ -614,7 +614,19 @@ header.site-header{
   }
 }
 
-  </style>
+  
+/* 物件一覧：外観写真と家賃を中心に表示 */
+#list,.family-list,#familyList{grid-template-columns:repeat(auto-fit,minmax(265px,1fr))}
+.property .gallery,.property .property-details,.property .video,.property .subline,.property .details-table,.property .actions .visit,.property .actions .map{display:none!important}
+.property .property-rent-summary{margin:12px 0 10px}
+.property-preview-photo{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:12px;background:#edf5ee;margin-top:8px}
+.property-preview-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s}
+.property-preview-photo:hover img{transform:scale(1.025)}
+.property-preview-link{display:block;text-align:center;background:#238447;color:white!important;text-decoration:none;padding:12px;border-radius:10px;font-weight:700;margin-top:10px}
+.property-preview-link:hover{background:#176836}
+.property .preview-meta{font-size:13px;color:#64748b;margin:8px 0 0}
+
+</style>
 </head>
 
 <body>
@@ -666,7 +678,7 @@ header.site-header{
 
   <!-- 長崎県立大学　学生向けアパート一覧 -->
   <section class="section" id="apartments">
-    <h2>長崎県立大学　学生向けアパート一覧（詳細）</h2>
+    <h2>長崎県立大学　学生向けアパート一覧</h2>
 
     <div class="controls">
       <button type="button" onclick="sortByRent()">家賃が安い順</button>
@@ -1765,11 +1777,42 @@ function setupYouTubeClickToPlay(){
 /* =========================
    初期化
    ========================= */
+
+function buildPropertyPreviews(){
+  document.querySelectorAll(".property[data-photo]").forEach(card=>{
+    if(card.querySelector(".property-preview-link"))return;
+    const id=card.id, folder=card.dataset.photo||id;
+    const title=card.querySelector("h3")?.textContent.trim()||"物件";
+    const gallery=card.querySelector(".gallery");
+    if(!gallery)return;
+    const photo=document.createElement("a");
+    photo.className="property-preview-photo";
+    photo.href="property.html?id="+encodeURIComponent(id);
+    photo.setAttribute("aria-label",title+"の詳細を見る");
+    const img=document.createElement("img");
+    img.src="images/"+encodeURIComponent(folder)+"/01.jpg";
+    img.alt=title+" 外観写真";
+    img.loading="lazy";
+    photo.appendChild(img);
+    gallery.before(photo);
+    const summary=card.querySelector(".property-rent-summary");
+    const details=card.querySelector(".details-table");
+    const plan=[...(details?.querySelectorAll(".detail-row")||[])].find(x=>x.querySelector("dt")?.textContent.trim()==="間取り")?.querySelector("dd")?.textContent.trim();
+    if(plan){
+      const p=document.createElement("p");p.className="preview-meta";p.textContent="間取り："+plan;
+      (summary||photo).after(p);
+    }
+    const a=document.createElement("a");a.className="property-preview-link";
+    a.href=photo.href;a.textContent="物件詳細を見る →";
+    (summary||photo).after(a);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   if(isAdmin()) document.body.classList.add("admin");
   setupAdminFish();
 
-  buildGalleries();
+  buildPropertyPreviews();
   applySavedStatuses();
   setupYouTubeClickToPlay();
 
