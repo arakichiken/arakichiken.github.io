@@ -72,6 +72,30 @@ async function init(){
         }
       }
     }
+    if(id!=="arthouse"){
+      const total=[...cloned.querySelectorAll(".detail-row")].find(row=>row.querySelector("dt")?.textContent.trim()==="初期費用合計目安");
+      if(total){
+        const dd=total.querySelector("dd");
+        const btn=document.createElement("button");btn.type="button";btn.className="cost-detail-button";btn.textContent="詳細";btn.setAttribute("aria-expanded","false");
+        const panel=document.createElement("div");panel.className="cost-breakdown";panel.hidden=true;
+        const costs=document.createElement("dl");costs.className="details-table";
+        const lookup=new Map([...cloned.querySelectorAll(".detail-row")].map(row=>[row.querySelector("dt")?.textContent.trim(),row.querySelector("dd")?.textContent.trim()]));
+        const fields=[["前家賃（1か月分）",lookup.get("家賃")||"要確認"],["敷金",lookup.get("敷金")||"要確認"],["礼金",lookup.get("礼金")||"要確認"],["仲介手数料",lookup.get("仲介手数料")||"要確認"],["保証会社保証料",lookup.get("保証会社保証料")||"要確認"],["鍵交換費用",lookup.get("鍵交換費用")||"要確認"],["その他の費用",lookup.get("その他の費用")||"要確認"],["駐車場代","0円（契約なし）"],["初期費用合計目安",lookup.get("初期費用合計目安")||"要確認"]];
+        for(const [label,value] of fields){
+          const row=document.createElement("div");row.className="detail-row";
+          if(label==="初期費用合計目安")row.classList.add("total-row");
+          const dt=document.createElement("dt");dt.textContent=label;
+          const val=document.createElement("dd");val.textContent=value;
+          row.append(dt,val);costs.append(row);
+        }
+        panel.append(costs);
+        const note=document.createElement("p");note.className="info-intro";
+        note.textContent="駐車場契約なし・前家賃1か月分を想定。家賃に幅がある物件や未確定費用がある物件は、契約条件を確認後に合計額をご案内します。";
+        panel.append(note);
+        btn.onclick=()=>{panel.hidden=!panel.hidden;btn.setAttribute("aria-expanded",String(!panel.hidden));btn.textContent=panel.hidden?"詳細":"閉じる";};
+        dd.append(document.createTextNode(" "),btn,panel);
+      }
+    }
     root.append(cloned);
   }else{
     heading("物件情報・賃貸条件");
