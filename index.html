@@ -626,7 +626,7 @@ header.site-header{
 .property-preview-link:hover{background:#176836}
 .property .preview-meta{font-size:13px;color:#64748b;margin:8px 0 0}
 
-</style>
+.cost-toggle{margin-left:8px;padding:4px 12px;border:1px solid #39865a;border-radius:7px;background:#f1faf3;color:#206c3e;font-weight:700;cursor:pointer}.cost-panel{margin-top:10px;padding:10px;border:1px solid #dbe8df;border-radius:8px;background:#fff}.cost-panel[hidden]{display:none}.cost-item{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #edf1ee;font-size:13px}.cost-item span:last-child{text-align:right}.cost-disclaimer{margin:9px 0 0;font-size:12px;color:#64748b}</style>
 </head>
 
 <body>
@@ -731,7 +731,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>233,900円</strong>（家賃50,000円・前家賃1ヶ月分、敷金0円仮定。未確定費用別途）</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>233,900円</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>50,000円</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>100,000円</span></div><div class="cost-item"><span>仲介手数料</span><span>55,000円</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>0円</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">駐車場契約なし・前家賃1ヶ月分で計算。家賃・契約条件により変動します。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -776,7 +776,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>－</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－（家主負担）</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -819,7 +819,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>－</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－（家主負担）</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -864,7 +864,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>17,600円</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>139,500円（駐車場契約なし・前家賃1か月分を含む。保険等の未確定費用は別途）</dd></div></dl>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>139,500円</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>30,000円</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>30,000円</span></div><div class="cost-item"><span>仲介手数料</span><span>33,000円</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>17,600円</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">駐車場契約なし・前家賃1ヶ月分で計算。家賃・契約条件により変動します。</p></div></dd></div></dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">お問い合わせ</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'arthouse')">📍 地図</a>
@@ -908,7 +908,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－（家主負担）</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -953,7 +953,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>55,000円</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>10,000円</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -998,7 +998,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>－</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>10,000円</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         </details>
       </div>
@@ -1037,7 +1037,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -1082,7 +1082,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -1127,7 +1127,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>147,800円〜</strong>（駐車場なし・前家賃1ヶ月分で計算。家賃により変動）</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>147,800円〜</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>29,000円</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>58,000円</span></div><div class="cost-item"><span>仲介手数料</span><span>31,900円</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>0円</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">駐車場契約なし・前家賃1ヶ月分で計算。家賃・契約条件により変動します。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -1172,7 +1172,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－（家主負担）</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -1220,7 +1220,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－（家主負担）</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>2ヶ月</span></div><div class="cost-item"><span>仲介手数料</span><span>家賃1ヶ月分＋消費税（10%）</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－（家主負担）</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
@@ -1263,7 +1263,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>－</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>－</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>－</span></div><div class="cost-item"><span>仲介手数料</span><span>－</span></div><div class="cost-item"><span>保証会社保証料</span><span>－</span></div><div class="cost-item"><span>鍵交換費用</span><span>－</span></div><div class="cost-item"><span>その他の費用</span><span>－</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
 
         <div class="actions">
@@ -1299,7 +1299,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>－</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>－</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>－</span></div><div class="cost-item"><span>仲介手数料</span><span>－</span></div><div class="cost-item"><span>保証会社保証料</span><span>－</span></div><div class="cost-item"><span>鍵交換費用</span><span>－</span></div><div class="cost-item"><span>その他の費用</span><span>－</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
 
         <div class="actions">
@@ -1347,7 +1347,7 @@ header.site-header{
   <div class="detail-row"><dt>保証会社保証料</dt><dd>10,000円</dd></div>
   <div class="detail-row"><dt>鍵交換費用</dt><dd>－</dd></div>
   <div class="detail-row"><dt>その他の費用</dt><dd>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</dd></div>
-  <div class="detail-row"><dt>初期費用合計目安</dt><dd>－</dd></div>
+  <div class="detail-row"><dt>初期費用合計目安</dt><dd><strong>－</strong> <button type="button" class="cost-toggle" onclick="const p=this.nextElementSibling;p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));this.textContent=p.hidden?'詳細':'閉じる';" aria-expanded="false">詳細</button><div class="cost-panel" hidden><div class="cost-item"><span>前家賃1ヶ月分</span><span>要確認</span></div><div class="cost-item"><span>敷金</span><span>0円</span></div><div class="cost-item"><span>礼金</span><span>－</span></div><div class="cost-item"><span>仲介手数料</span><span>－</span></div><div class="cost-item"><span>保証会社保証料</span><span>10,000円</span></div><div class="cost-item"><span>鍵交換費用</span><span>－</span></div><div class="cost-item"><span>その他の費用</span><span>学賠償保険（一人暮らし特約）：8,500円／学生生活110番（4年分）：10,400円</span></div><p class="cost-disclaimer">未確定の費用があるため合計金額は要確認です。</p></div></dd></div>
 </dl>
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">お問い合わせ</a>
