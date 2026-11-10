@@ -392,6 +392,13 @@
     .news{margin:0;padding-left:18px}
     .news li{margin:0 0 6px;display:grid;grid-template-columns:6.8em minmax(0,1fr);column-gap:0.6em;align-items:start}
     .news-date{white-space:nowrap;font-variant-numeric:tabular-nums}
+    .news-title{border:0;background:none;color:#075ca8;text-align:left;font:inherit;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+    .news-title:hover{color:#03457f}
+    .news-detail{margin-top:18px;padding:18px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc}
+    .news-detail[hidden]{display:none}
+    .news-detail h3{margin:0 0 12px;font-size:1.12rem}
+    .news-detail p{white-space:pre-line;line-height:1.8}
+    .news-close{cursor:pointer;padding:8px 16px;border:1px solid #94a3b8;border-radius:8px;background:white}
 
     .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn.tel{background:linear-gradient(135deg, var(--accent2), var(--accent3))}
@@ -663,6 +670,11 @@ header.site-header{
       <li>2026.2.23　県立大学前期試験　受験の皆様へ</li>
      
     </ul>
+    <div id="news-detail" class="news-detail" hidden aria-live="polite">
+      <h3 id="news-detail-title"></h3>
+      <p id="news-detail-body"></p>
+      <button type="button" class="news-close" id="news-detail-close">閉じる</button>
+    </div>
   </section>
 
   <script>
@@ -690,9 +702,31 @@ header.site-header{
         dateSpan.className = 'news-date';
         dateSpan.textContent = match[1];
         const bodySpan = document.createElement('span');
-        bodySpan.textContent = match[2];
+        const link = document.createElement('button');
+        link.type = 'button';
+        link.className = 'news-title';
+        link.textContent = match[2];
+        link.addEventListener('click', () => {
+          const panel = document.getElementById('news-detail');
+          const title = document.getElementById('news-detail-title');
+          const body = document.getElementById('news-detail-body');
+          title.textContent = match[1] + '　' + match[2];
+          const details = {
+            '2026.11.11': 'ファミリータイプのグレースハイツに空室があります。物件の詳細は、ホームページの「ファミリー物件」をご覧ください。ご質問・内見のご相談はお問い合わせからお願いいたします。',
+            '2026.7.14': '営業を再開いたしました。今後ともよろしくお願いいたします。',
+            '2026.3.7': '長崎県立大学佐世保校へ進学される皆様へのお知らせです。詳しいご案内は準備中です。',
+            '2026.2.23': '県立大学前期試験を受験される皆様へのお知らせです。詳しいご案内は準備中です。'
+          };
+          body.textContent = details[match[1]] || '詳しいご案内は準備中です。お問い合わせからご相談ください。';
+          panel.hidden = false;
+          panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+        });
+        bodySpan.append(link);
         item.append(dateSpan, bodySpan);
       }
+      document.getElementById('news-detail-close')?.addEventListener('click', () => {
+        document.getElementById('news-detail').hidden = true;
+      });
     })();
   </script>
 
