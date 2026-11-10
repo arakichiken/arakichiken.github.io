@@ -390,7 +390,8 @@
     .btn.map{background:linear-gradient(135deg, #06b6d4, #0ea5e9)}
 
     .news{margin:0;padding-left:18px}
-    .news li{margin:0 0 6px}
+    .news li{margin:0 0 6px;display:grid;grid-template-columns:6.8em minmax(0,1fr);column-gap:0.6em;align-items:start}
+    .news-date{white-space:nowrap;font-variant-numeric:tabular-nums}
 
     .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn.tel{background:linear-gradient(135deg, var(--accent2), var(--accent3))}
@@ -665,21 +666,33 @@ header.site-header{
   </section>
 
   <script>
-    // 「最新のお知らせ」の内容を「新着情報」の先頭へ自動反映する
+    // 最新のお知らせを新着情報の先頭へ反映し、日付と本文の開始位置を揃える
     (function () {
       const latest = document.querySelector('.latest-comment');
       const news = document.querySelector('#news .news');
-      if (!latest || !news) return;
-      const message = latest.querySelector('span')?.textContent.trim();
-      const date = latest.querySelector('time')?.textContent.replace(/^更新[：:]\s*/, '').trim();
-      if (!message || !date) return;
-      const entry = date + '　' + message;
-      for (const item of Array.from(news.querySelectorAll('li'))) {
-        if (item.textContent.trim() === entry) item.remove();
+      if (!news) return;
+      const message = latest?.querySelector('span')?.textContent.trim();
+      const date = latest?.querySelector('time')?.textContent.replace(/^更新[：:]\s*/, '').trim();
+      if (message && date) {
+        const entry = date + '　' + message;
+        for (const item of Array.from(news.querySelectorAll('li'))) {
+          if (item.textContent.trim() === entry) item.remove();
+        }
+        const item = document.createElement('li');
+        item.textContent = entry;
+        news.prepend(item);
       }
-      const item = document.createElement('li');
-      item.textContent = entry;
-      news.prepend(item);
+      for (const item of news.querySelectorAll('li')) {
+        const match = item.textContent.trim().match(/^(\d{4}\.\d{1,2}\.\d{1,2})\s*(.*)$/);
+        if (!match) continue;
+        item.replaceChildren();
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'news-date';
+        dateSpan.textContent = match[1];
+        const bodySpan = document.createElement('span');
+        bodySpan.textContent = match[2];
+        item.append(dateSpan, bodySpan);
+      }
     })();
   </script>
 
