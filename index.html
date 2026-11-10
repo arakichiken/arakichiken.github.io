@@ -397,10 +397,6 @@
     .btn.line{background:linear-gradient(135deg, #22c55e, #16a34a)}
     .btn.mail{background:linear-gradient(135deg, #0ea5e9, #0284c7)}
 
-    /* ===== Admin only ===== */
-    .admin-only{display:none !important;}
-    body.admin .admin-only{display:inline-flex !important;}
-
     /* Footer fish */
     footer{
       margin-top:6px;
@@ -409,16 +405,7 @@
       font-size:12px;
       color:#64748b;
     }
-    .admin-fish{
-      width:28px;height:28px;object-fit:contain;
-      vertical-align:middle;margin-left:8px;
-      opacity:.16;filter:grayscale(100%);
-      cursor:pointer;user-select:none;
-      transition:opacity .15s ease, transform .15s ease;
-    }
-    .admin-fish:hover{opacity:.32; transform:translateY(-1px)}
-
-    .hidden{display:none !important;}
+.hidden{display:none !important;}
 
     /* ===== Lightbox ===== */
     .lb{
@@ -736,7 +723,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'ichiban')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('ichiban')">満室切替</button>
+
         </div>
       
         </details>
@@ -781,7 +768,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'niban')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('niban')">満室切替</button>
+
         </div>
       
         </details>
@@ -824,7 +811,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'sanban')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sanban')">満室切替</button>
+
         </div>
       
         </details>
@@ -868,7 +855,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">お問い合わせ</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'arthouse')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('arthouse')">満室切替</button>
+
         </div>
       
         </details>
@@ -913,7 +900,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'north')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('north')">満室切替</button>
+
         </div>
       
         </details>
@@ -958,7 +945,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'casa1')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casa1')">満室切替</button>
+
         </div>
       
         </details>
@@ -1042,7 +1029,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'villa')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('villa')">満室切替</button>
+
         </div>
       
         </details>
@@ -1087,7 +1074,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'prima')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('prima')">満室切替</button>
+
         </div>
       
         </details>
@@ -1132,7 +1119,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'student')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('student')">満室切替</button>
+
         </div>
       
         </details>
@@ -1177,7 +1164,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'casamento')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('casamento')">満室切替</button>
+
         </div>
       
         </details>
@@ -1225,7 +1212,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">内覧可能</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'sumi')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('sumi')">満室切替</button>
+
         </div>
       
         </details>
@@ -1267,7 +1254,7 @@ header.site-header{
 </dl>
 
         <div class="actions">
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('asahi')">満室切替</button>
+
         </div>
       
         </details>
@@ -1303,7 +1290,7 @@ header.site-header{
 </dl>
 
         <div class="actions">
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('wing')">満室切替</button>
+
         </div>
       </div>
 
@@ -1352,7 +1339,7 @@ header.site-header{
         <div class="actions">
           <a class="btn visit" href="#contact" onclick="event.preventDefault();jumpContact();">お問い合わせ</a>
           <a class="btn map" href="#" onclick="openMapFromCard(event,'family-grace')">📍 地図</a>
-          <button class="btn toggle admin-only" type="button" onclick="toggleStatus('family-grace')">満室切替</button>
+
         </div>
       </div>
     </div>
@@ -1463,8 +1450,6 @@ header.site-header{
 
   <footer>
     © 荒木地建 All rights reserved.
-    <!-- ★ fish は images/fish.jpg に置く -->
-    <img id="adminFish" class="admin-fish" src="images/fish.jpg" alt="管理者" />
   </footer>
 </main>
 
@@ -1489,120 +1474,6 @@ header.site-header{
 </div>
 
 <script>
-/* =========================
-   管理者（裏コマンド）
-   フッターの魚を5回タップ
-   ========================= */
-const ADMIN_KEY = "arakitiken_admin_ok";
-const ADMIN_PASSWORD = "arakitiken2026";
-const STATUS_KEY = "arakitiken_status_v1";
-
-/* ---- 満室状態の保存/読込 ---- */
-function loadStatuses(){
-  try { return JSON.parse(localStorage.getItem(STATUS_KEY) || "{}"); }
-  catch(e){ return {}; }
-}
-function saveStatuses(obj){
-  localStorage.setItem(STATUS_KEY, JSON.stringify(obj));
-}
-
-/* ---- 管理者判定/表示 ---- */
-function isAdmin(){ return sessionStorage.getItem(ADMIN_KEY) === "1"; }
-function setAdmin(on){
-  if(on){
-    sessionStorage.setItem(ADMIN_KEY, "1");
-    document.body.classList.add("admin");
-  }else{
-    sessionStorage.removeItem(ADMIN_KEY);
-    document.body.classList.remove("admin");
-  }
-}
-
-/* ---- 1物件の表示を状態に合わせて更新 ---- */
-function applyStatusToCard(box, isFull){
-  if(!box) return;
-  const badge = box.querySelector('.status');
-  const visit = box.querySelector('.btn.visit');
-
-  if(isFull){
-    box.classList.add('full');
-    if(badge){ badge.classList.remove('open'); badge.classList.add('full'); badge.textContent = '満室'; }
-    if(visit) visit.style.display = 'none';
-  }else{
-    box.classList.remove('full');
-    if(badge){ badge.classList.remove('full'); badge.classList.add('open'); badge.textContent = '募集中'; }
-    if(visit) visit.style.display = 'inline-flex';
-  }
-}
-
-/* ---- 保存済み状態をページに反映 ---- */
-function applySavedStatuses(){
-  const st = loadStatuses();
-  Object.keys(st).forEach(id=>{
-    const box = document.getElementById(id);
-    if(box) applyStatusToCard(box, false);
-  });
-}
-
-/* ---- 5回タップでログイン/ログアウト ---- */
-function setupAdminFish(){
-  const fish = document.getElementById("adminFish");
-  if(!fish) return;
-
-  let taps = 0;
-  let timer = null;
-
-  fish.addEventListener("click", ()=>{
-    taps++;
-    clearTimeout(timer);
-    timer = setTimeout(()=>{ taps = 0; }, 1500);
-
-    if(taps >= 5){
-      taps = 0;
-
-      if(isAdmin()){
-        const ok = confirm("管理者モードをOFFにしますか？");
-        if(ok){
-          setAdmin(false);
-          alert("管理者モードOFF");
-        }
-        return;
-      }
-
-      const pw = prompt("管理者パスワードを入力してください");
-      if(pw === null) return;
-      if(pw === ADMIN_PASSWORD){
-        setAdmin(true);
-        alert("管理者モードON（満室切替が表示されます）");
-      }else{
-        alert("パスワードが違います");
-      }
-    }
-  });
-}
-
-/* =========================
-   満室切替（管理者のみ）
-   ========================= */
-function toggleStatus(id){
-  if(!isAdmin()){
-    alert("満室切替は管理者のみ操作できます。");
-    return;
-  }
-  const box = document.getElementById(id);
-  if(!box) return;
-
-  const nextIsFull = !box.classList.contains('full');
-  applyStatusToCard(box, nextIsFull);
-
-  const st = loadStatuses();
-  st[id] = nextIsFull;
-  saveStatuses(st);
-
-  // 満室のまとめ直し
-  groupFullCards();
-}
-
 /* =========================
    満室物件の開閉 + まとめ（学生向けアパート）
    ========================= */
@@ -1989,12 +1860,8 @@ function buildPropertyPreviews(){
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-  if(isAdmin()) document.body.classList.add("admin");
-  setupAdminFish();
-
-  buildPropertyPreviews();
-  applySavedStatuses();
-  setupYouTubeClickToPlay();
+buildPropertyPreviews();
+setupYouTubeClickToPlay();
 
   // 学生向けアパートの満室をまとめて閉じる
   fullOpen = false;
