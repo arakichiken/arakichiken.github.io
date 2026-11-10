@@ -644,8 +644,8 @@ header.site-header{
 
     <div class="latest-comment">
       <strong>最新のお知らせ：</strong>
-      <span>営業を再開いたしました。今後ともよろしくお願いいたします。</span>
-      <time>更新：2026.7.14</time>
+      <span>超人気！ファミリータイプのグレースハイツ空室あります。</span>
+      <time>更新：2026.11.11</time>
     </div>
   </div>
 </header>
@@ -663,6 +663,25 @@ header.site-header{
      
     </ul>
   </section>
+
+  <script>
+    // 「最新のお知らせ」の内容を「新着情報」の先頭へ自動反映する
+    (function () {
+      const latest = document.querySelector('.latest-comment');
+      const news = document.querySelector('#news .news');
+      if (!latest || !news) return;
+      const message = latest.querySelector('span')?.textContent.trim();
+      const date = latest.querySelector('time')?.textContent.replace(/^更新[：:]\s*/, '').trim();
+      if (!message || !date) return;
+      const entry = date + '　' + message;
+      for (const item of Array.from(news.querySelectorAll('li'))) {
+        if (item.textContent.trim() === entry) item.remove();
+      }
+      const item = document.createElement('li');
+      item.textContent = entry;
+      news.prepend(item);
+    })();
+  </script>
 
   <!-- 長崎県立大学　学生向けアパート一覧 -->
   <section class="section" id="apartments">
