@@ -1938,6 +1938,7 @@ function buildPropertyPreviews(){
     img.src="images/"+encodeURIComponent(folder)+"/01.jpg";
     img.alt=title+" 外観写真";
     img.loading="lazy";
+    photo.addEventListener("click", () => sessionStorage.setItem("propertyListScroll", String(window.scrollY)));
     photo.appendChild(img);
     gallery.before(photo);
     const summary=card.querySelector(".property-rent-summary");
@@ -1948,7 +1949,9 @@ function buildPropertyPreviews(){
       (summary||photo).after(p);
     }
     const a=document.createElement("a");a.className="property-preview-link";
-    a.href=photo.href;a.textContent="物件詳細を見る →";
+    a.href=photo.href;
+    a.addEventListener("click", () => sessionStorage.setItem("propertyListScroll", String(window.scrollY)));
+    a.textContent="物件詳細を見る →";
     (summary||photo).after(a);
   });
 }
@@ -1960,6 +1963,13 @@ setupYouTubeClickToPlay();
   // 学生向けアパートの満室をまとめて閉じる
   fullOpen = false;
   groupFullCards();
+  const savedPosition = sessionStorage.getItem("propertyListScroll");
+  if (savedPosition !== null) {
+    sessionStorage.removeItem("propertyListScroll");
+    const restore = () => window.scrollTo({top:Number(savedPosition),behavior:"instant"});
+    requestAnimationFrame(() => requestAnimationFrame(restore));
+    window.addEventListener("load", restore, {once:true});
+  }
 });
 </script>
 
