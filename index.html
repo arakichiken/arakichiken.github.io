@@ -624,7 +624,16 @@ header.site-header{
 .property-preview-link:hover{background:#176836}
 .property .preview-meta{font-size:13px;color:#64748b;margin:8px 0 0}
 
-.cost-toggle{margin-left:8px;padding:4px 12px;border:1px solid #39865a;border-radius:7px;background:#f1faf3;color:#206c3e;font-weight:700;cursor:pointer}.cost-panel{margin-top:10px;padding:10px;border:1px solid #dbe8df;border-radius:8px;background:#fff}.cost-panel[hidden]{display:none}.cost-item{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #edf1ee;font-size:13px}.cost-item span:last-child{text-align:right}.cost-disclaimer{margin:9px 0 0;font-size:12px;color:#64748b}</style>
+.cost-toggle{margin-left:8px;padding:4px 12px;border:1px solid #39865a;border-radius:7px;background:#f1faf3;color:#206c3e;font-weight:700;cursor:pointer}.cost-panel{margin-top:10px;padding:10px;border:1px solid #dbe8df;border-radius:8px;background:#fff}.cost-panel[hidden]{display:none}.cost-item{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #edf1ee;font-size:13px}.cost-item span:last-child{text-align:right}.cost-disclaimer{margin:9px 0 0;font-size:12px;color:#64748b}
+    .grace-feature{display:flex;gap:18px;align-items:center;margin:18px 0 8px;padding:16px;background:#f2fbf2;border:1px solid #b8d9b8;border-radius:14px}
+    .grace-feature img{width:220px;max-width:40%;height:150px;object-fit:cover;border-radius:10px}
+    .grace-feature-body{flex:1;min-width:0}
+    .grace-feature-label{display:inline-block;background:#18723e;color:white;font-size:13px;font-weight:700;border-radius:6px;padding:3px 10px}
+    .grace-feature h3{margin:8px 0 4px;font-size:1.25rem}
+    .grace-feature p{margin:5px 0 12px}
+    .grace-feature-link{display:inline-block;background:#176d3a;color:white!important;text-decoration:none;border-radius:8px;padding:9px 16px;font-weight:700}
+    @media(max-width:600px){.grace-feature{flex-direction:column;align-items:stretch}.grace-feature img{width:100%;max-width:none;height:190px}}
+  </style>
 </head>
 
 <body>
@@ -666,7 +675,15 @@ header.site-header{
     <h2>佐世保市の賃貸・学生アパート・ファミリー物件</h2>
     <p class="meta">荒木地建では、長崎県立大学佐世保校周辺の学生向けアパートや、相浦・大潟町周辺のファミリー向け賃貸住宅をご案内しています。</p>
     <p><a href="student-apartments.html">長崎県立大学佐世保校周辺の学生アパート一覧を見る</a></p>
-    <p><a href="grace-heights.html">大潟町の3DK「グレースハイツ」｜駐車場2台付き・家賃65,000円の物件情報を見る</a></p>
+    <div class="grace-feature" aria-label="グレースハイツ入居者募集のご案内">
+      <img src="images/family-grace/01.jpg" alt="佐世保市大潟町の賃貸住宅 グレースハイツ外観" loading="eager">
+      <div class="grace-feature-body">
+        <span class="grace-feature-label">入居者募集中</span>
+        <h3>グレースハイツ｜佐世保市大潟町の3DK賃貸</h3>
+        <p>家賃65,000円・駐車場2台付き。相浦西小学校・日野中学校区のファミリー向け賃貸住宅です。</p>
+        <a class="grace-feature-link" href="grace-heights.html">写真・間取り・募集条件を見る</a>
+      </div>
+    </div>
   </section>
 
   <!-- 新着情報 -->
